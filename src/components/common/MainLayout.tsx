@@ -22,6 +22,7 @@ const MainLayoutContainer = styled.div`
   justify-content: center;
   align-items: center;
   background-color: beige;
+  color: #222020;
 `;
 
 const MainContentWrapper = styled.div`
