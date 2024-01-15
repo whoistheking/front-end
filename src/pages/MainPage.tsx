@@ -1,8 +1,12 @@
 import React from 'react'
+import styled from 'styled-components';
+import { StPageLayout } from '../styles/StPageLayout';
 
 const MainPage = () => {
   return (
-    <div>MainPage</div>
+    <StPageLayout>
+      MainPage
+    </StPageLayout>
   )
 };
 
