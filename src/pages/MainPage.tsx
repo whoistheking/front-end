@@ -4,7 +4,7 @@ import { StPageLayout } from '../styles/StPageLayout';
 
 const MainPage = () => {
   return (
-    <StPageLayout>
+    <StPageLayout backgroundcolor='#E8DECF'>
       MainPage
     </StPageLayout>
   )

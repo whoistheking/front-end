@@ -4,7 +4,7 @@ import { StPageLayout } from '../styles/StPageLayout';
 
 const GameRoomPage = () => {
   return (
-    <StPageLayout>
+    <StPageLayout backgroundcolor='#E8DECF'>
       GameRoomPage
     </StPageLayout>
   )
