@@ -2,6 +2,9 @@ import React from 'react'
 import styled from 'styled-components';
 import { StPageLayout } from '../styles/StPageLayout';
 import Logo from '../assets/logo/logo_example.png';
+import Kakao from '../assets/icons/kakao.png';
+import Naver from '../assets/icons/naver.png';
+import Google from '../assets/icons/google.png';
 
 const LoginPage = () => {
   return (
@@ -9,15 +12,34 @@ const LoginPage = () => {
       <ContentWrapper>
         <LogoImage src={Logo} alt='logo'/>
         <ButtonWrapper>
-          <Button color='#000000' backgroundcolor='#fffb00'>
-            카카오톡
-          </Button>
-          <Button color='#FFFFFF' backgroundcolor='#00ff15'>
-            네이버
-          </Button>
-          <Button color='#FFFFFF' backgroundcolor='#00a2ff'>
-            구글
-          </Button>
+          <LoginButton
+            color='#222020'
+            backgroundcolor='#fee500'>
+            <IconWrapper>
+              <ButtonIcons src={Kakao} alt='google'/>
+            </IconWrapper>
+            <ButtonText>
+              카카오 로그인
+            </ButtonText>
+          </LoginButton>
+          <LoginButton
+            color='#FFFFFF'
+            backgroundcolor='#02c75a'>
+            <IconWrapper>
+              <ButtonIcons src={Naver} alt='google'/>
+            </IconWrapper>
+            <ButtonText>
+              네이버 로그인
+            </ButtonText>
+          </LoginButton>
+          <GoogleLoginButton>
+            <IconWrapper>
+              <ButtonIcons src={Google} alt='google'/>
+            </IconWrapper>
+            <ButtonText>
+              구글 로그인
+            </ButtonText>
+          </GoogleLoginButton>
         </ButtonWrapper>
       </ContentWrapper>
     </StPageLayout>
@@ -50,16 +72,54 @@ const ButtonWrapper = styled.div`
   gap: 16px;
 `;
 
-const Button = styled.button<{ backgroundcolor : string, color : string }>`
+const LoginButton = styled.button<{ backgroundcolor : string, color : string }>`
   width: 300px;
-  height: 40px;
-  border-radius: 20px;
+  height: 54px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
   background-color: ${(props) => props.backgroundcolor};
-  font-size: 18px;
-  font-weight: 500;
-  line-height: normal;
   color: ${(props) => props.color};
+  border: none;
   cursor: pointer;
+`;
+
+const GoogleLoginButton = styled.button`
+  width: 300px;
+  height: 54px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  background: linear-gradient(to bottom, #FFFFFF, #e9e9e9);
+  border: none;
+  cursor: pointer;
+`;
+
+const IconWrapper = styled.div`
+  min-width: 80px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+`;
+
+const ButtonIcons = styled.img`
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+`;
+
+const ButtonText = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: normal;
 `;
 
 export default LoginPage;
