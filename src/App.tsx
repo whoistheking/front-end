@@ -13,8 +13,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route element={<MainLayout />}>
-            <Route path='/' element={<MainPage />} />
-            <Route path='/login' element={<LoginPage />} />
+            <Route path='/' element={<LoginPage />} />
+            <Route path='/main' element={<MainPage />} />
             <Route path='/gameroom' element={<GameRoomPage />} />
           </Route>
         </Routes>

@@ -10,14 +10,14 @@ const Banner = () => {
 };
 
 const BannerContainer = styled.div`
-    width: 100%;
-    height: 100%;
-    background-color: beige;
-    border: 1px solid;
+  width: 100%;
+  height: 100%;
+  background-color: beige;
+  border: 1px solid;
 
-    @media screen and (max-width: 1140px) {
-        display: none;
-    }
+  @media screen and (max-width: 1140px) {
+    display: none;
+  }
 `;
 
 export default Banner;
