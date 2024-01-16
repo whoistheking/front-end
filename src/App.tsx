@@ -6,6 +6,7 @@ import MainPage from './pages/MainPage';
 import LoginPage from './pages/LoginPage';
 import MainLayout from './components/common/MainLayout';
 import GameRoomPage from './pages/GameRoomPage';
+import WaitingRoomPage from './pages/WaitingRoomPage';
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
           <Route element={<MainLayout />}>
             <Route path='/' element={<LoginPage />} />
             <Route path='/main' element={<MainPage />} />
-            <Route path='/gameroom' element={<GameRoomPage />} />
+            <Route path='/gameroom/waiting' element={<WaitingRoomPage />} />
+            <Route path='/gameroom/start' element={<GameRoomPage />} />
           </Route>
         </Routes>
       </BrowserRouter>
