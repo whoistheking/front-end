@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const Banner = () => {
   return (
     <BannerContainer>
-        Banner
+      Banner
     </BannerContainer>
   )
 };
@@ -13,9 +13,9 @@ const BannerContainer = styled.div`
   width: 100%;
   height: 100%;
   background-color: beige;
-  border: 1px solid;
+  border-left: 1px solid;
 
-  @media screen and (max-width: 1140px) {
+  @media screen and (max-width: 1050px) {
     display: none;
   }
 `;

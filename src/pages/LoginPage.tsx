@@ -42,6 +42,7 @@ const LoginPage = () => {
           </GoogleLoginButton>
         </ButtonWrapper>
       </ContentWrapper>
+      {/* <Test /> */}
     </StPageLayout>
   )
 };
@@ -120,6 +121,12 @@ const ButtonText = styled.div`
   font-size: 16px;
   font-weight: 700;
   line-height: normal;
+`;
+
+const Test = styled.div`
+  width: 100%;
+  height: 1000px;
+  background-color: transparent;
 `;
 
 export default LoginPage;
