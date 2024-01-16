@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components';
 import Logo from '../assets/logo/logo_example.png';
-import Kakao from '../assets/icons/kakao.png';
-import Naver from '../assets/icons/naver.png';
-import Google from '../assets/icons/google.png';
+import Kakao from '../assets/icons/kakao.webp';
+import Naver from '../assets/icons/naver.webp';
+import Google from '../assets/icons/google.webp';
 
 const LoginPage = () => {
   return (
