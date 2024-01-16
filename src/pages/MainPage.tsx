@@ -5,7 +5,7 @@ import { StBasicButton } from "../styles/BasicButton";
 const MainPage = () => {
   return (
     <div>
-      <StBasicButton width="100px" height="40px">
+      <StBasicButton width="120px" height="40px">
         버튼
       </StBasicButton>
     </div>

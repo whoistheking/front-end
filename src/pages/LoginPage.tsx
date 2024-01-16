@@ -114,8 +114,9 @@ const ButtonText = styled.div`
   display: flex;
   justify-content: start;
   align-items: center;
-  font-size: 16px;
-  font-weight: 700;
+  font-family: 'NanumBaReunHiPi';
+  font-size: 20px;
+  font-weight: 800;
   line-height: normal;
 `;
 
