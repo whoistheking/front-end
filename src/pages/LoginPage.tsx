@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components';
-import { StPageLayout } from '../styles/StPageLayout';
 import Logo from '../assets/logo/logo_example.png';
 import Kakao from '../assets/icons/kakao.png';
 import Naver from '../assets/icons/naver.png';
@@ -8,42 +7,39 @@ import Google from '../assets/icons/google.png';
 
 const LoginPage = () => {
   return (
-    <StPageLayout backgroundcolor='#E8DECF'>
-      <ContentWrapper>
-        <LogoImage src={Logo} alt='logo'/>
-        <ButtonWrapper>
-          <LoginButton
-            color='#222020'
-            backgroundcolor='#fee500'>
-            <IconWrapper>
-              <ButtonIcons src={Kakao} alt='google'/>
-            </IconWrapper>
-            <ButtonText>
-              카카오 로그인
-            </ButtonText>
-          </LoginButton>
-          <LoginButton
-            color='#FFFFFF'
-            backgroundcolor='#02c75a'>
-            <IconWrapper>
-              <ButtonIcons src={Naver} alt='google'/>
-            </IconWrapper>
-            <ButtonText>
-              네이버 로그인
-            </ButtonText>
-          </LoginButton>
-          <GoogleLoginButton>
-            <IconWrapper>
-              <ButtonIcons src={Google} alt='google'/>
-            </IconWrapper>
-            <ButtonText>
-              구글 로그인
-            </ButtonText>
-          </GoogleLoginButton>
-        </ButtonWrapper>
-      </ContentWrapper>
-      {/* <Test /> */}
-    </StPageLayout>
+    <ContentWrapper>
+      <LogoImage src={Logo} alt='logo' />
+      <ButtonWrapper>
+        <LoginButton
+          color='#222020'
+          backgroundcolor='#fee500'>
+          <IconWrapper>
+            <ButtonIcons src={Kakao} alt='google' />
+          </IconWrapper>
+          <ButtonText>
+            카카오 로그인
+          </ButtonText>
+        </LoginButton>
+        <LoginButton
+          color='#FFFFFF'
+          backgroundcolor='#02c75a'>
+          <IconWrapper>
+            <ButtonIcons src={Naver} alt='google' />
+          </IconWrapper>
+          <ButtonText>
+            네이버 로그인
+          </ButtonText>
+        </LoginButton>
+        <GoogleLoginButton>
+          <IconWrapper>
+            <ButtonIcons src={Google} alt='google' />
+          </IconWrapper>
+          <ButtonText>
+            구글 로그인
+          </ButtonText>
+        </GoogleLoginButton>
+      </ButtonWrapper>
+    </ContentWrapper>
   )
 };
 
@@ -73,7 +69,7 @@ const ButtonWrapper = styled.div`
   gap: 16px;
 `;
 
-const LoginButton = styled.button<{ backgroundcolor : string, color : string }>`
+const LoginButton = styled.button<{ backgroundcolor: string, color: string }>`
   width: 300px;
   height: 54px;
   border-radius: 5px;
