@@ -8,7 +8,9 @@ const MainLayout = () => {
     <MainLayoutContainer>
       <MainContentWrapper>
         <Banner />
-        <Outlet />
+        <PageLayout backgroundcolor='#E8DECF'>
+          <Outlet />
+        </PageLayout>
       </MainContentWrapper>
     </MainLayoutContainer>
   )
@@ -54,14 +56,14 @@ const MainContentWrapper = styled.div`
   }
 `;
 
-const BannerContainer = styled.div`
-  width: 100%;
+const PageLayout = styled.div<{ backgroundcolor : string }>`
+  min-width: 570px;
   height: 100%;
-  background-color: beige;
-  border: 1px solid;
+  background-color: ${(props) => props.backgroundcolor};
+  overflow-y: auto;
 
-  @media screen and (max-width: 1050px) {
-    display: none;
+  @media screen and (max-width: 570px) {
+    min-width: 100%;
   }
 `;
 
