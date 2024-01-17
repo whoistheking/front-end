@@ -3,10 +3,20 @@ import styled from 'styled-components';
 import Kakao from '../../assets/icons/kakao.webp';
 
 const KakaoLogin = () => {
+
+  const REST_API_KEY = ""; // 발급받은 키
+  const REDIRECT_URI = "http://localhost:3000/login"; // Callback URL
+  const link = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`
+
+  const KakaoLoginButtonHandler = () => {
+    window.location.href = link; // 카카오 로그인 페이지 링크로 이동
+  };
+
   return (
     <LoginButton
         color='#222020'
-        backgroundcolor='#fee500'>
+        backgroundcolor='#fee500'
+        onClick={KakaoLoginButtonHandler}>
         <IconWrapper>
             <ButtonIcons src={Kakao} alt='google' />
         </IconWrapper>
