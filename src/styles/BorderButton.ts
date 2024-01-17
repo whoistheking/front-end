@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
-export const BorderButton = styled.button<{ width : string, height : string }>`
+export const StBorderButton = styled.button<{ width : string, height : string }>`
     width: ${(props) => props.width};
     height: ${(props) => props.height};
-    background-color: #FDEDED;
+    background-color: #FBE7E7;
     border-radius: 30px;
     display: flex;
     justify-content: center;
@@ -12,13 +12,22 @@ export const BorderButton = styled.button<{ width : string, height : string }>`
     font-size: 18px;
     font-weight: 700;
     line-height: 100%;
-    box-shadow: #F4D5D5 0px 3px 2px 1px;
+    box-shadow: #E3AEAE 0px 2px 2px 1px;
     border: none;
     user-select: none;
+    text-shadow: 0px 0px 3px #AF5B5B;
+    color: #FFFFFF;
     cursor: pointer;
 
+    &:hover {
+        color: #222020;
+        text-shadow: none;
+    }
+
     &:active {
-        box-shadow: #F4D5D590 0px 2px 2px 1px;
+        box-shadow: #E3AEAE90 0px 2px 2px 1px;
+        color: #222020;
+        text-shadow: 0px 0px 3px #000000;
         font-size: 17px;
     }
 `;

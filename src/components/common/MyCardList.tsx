@@ -4,13 +4,16 @@ import PokerCard from './PokerCard';
 
 const MyCardList = () => {
 
-    const cardArr : number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
+    const cardArr : number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
 
   return (
     <MyCardListContainer>
         {cardArr?.map((item : number) => {
             return (
-                <PokerCard key={item} mycard={true} item={item}/>
+                <PokerCard
+                    key={item}
+                    mycard={true}
+                    item={item}/>
             )
         })}
     </MyCardListContainer>
