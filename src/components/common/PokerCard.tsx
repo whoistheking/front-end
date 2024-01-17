@@ -1,13 +1,23 @@
 import React from 'react'
+import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
+import { cardClick } from '../../redux/module/CardChoiceSlice';
 
 interface PokerCardProps {
     mycard: boolean;
+    item: any;
 };
 
-const PokerCard : React.FC<PokerCardProps> = ({ mycard }) => {
+const PokerCard : React.FC<PokerCardProps> = ({ mycard, item }) => {
+
+    const dispatch = useDispatch();
+
+    const onClickCardChoiceHandler = () => {
+        dispatch(cardClick(item));
+    };
+
   return (
-    <CardContainer width='50px' height='67px'>
+    <CardContainer onClick={onClickCardChoiceHandler} width='55px' height='73px'>
         <CardInnerBox>
             <FrontCard style={{transform: (mycard) ? "" : "rotateY(180deg)"}}>
                 front
@@ -33,12 +43,13 @@ const CardContainer = styled.div<{ width : string, height : string }>`
     position: relative;
     overflow: hidden;
     border: 1px solid #222020;
+    border-radius: 5px;
     perspective: 1000px;
     cursor: pointer;
 
     &:hover {
         transition: all 0.3s;
-        transform: translateY(-10%) scale(101%);
+        transform: translateY(-10%) scale(105%);
     }
     
     /* &:hover ${CardInnerBox} {
@@ -53,6 +64,7 @@ const FrontCard = styled.div`
     top: 0;
     left: 0;
     backface-visibility: hidden;
+    background-color: #FFFFFF;
 `;
 
 const BackCard = styled.div`

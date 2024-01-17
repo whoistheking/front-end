@@ -20,6 +20,7 @@ const TopLineButtonContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: 14px;
 
   @media screen and (max-width: 550px) {
     width: 96%;
