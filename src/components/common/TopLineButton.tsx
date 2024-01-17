@@ -9,7 +9,7 @@ const TopLineButton = () => {
         Button
       </BorderButton>
       <BorderButton width='70px' height='30px'>
-        Button
+        나가기
       </BorderButton>
     </TopLineButtonContainer>
   )

@@ -1,7 +1,8 @@
 import React from 'react'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import { cardClick } from '../../redux/module/CardChoiceSlice';
+import { RootState } from '../../redux/config/configureStore';
 
 interface PokerCardProps {
     mycard: boolean;
@@ -11,22 +12,46 @@ interface PokerCardProps {
 const PokerCard : React.FC<PokerCardProps> = ({ mycard, item }) => {
 
     const dispatch = useDispatch();
+    const selectCard = useSelector((state : RootState) => state.cardChoice.value);
 
     const onClickCardChoiceHandler = () => {
         dispatch(cardClick(item));
     };
 
-  return (
-    <CardContainer onClick={onClickCardChoiceHandler} width='55px' height='73px'>
-        <CardInnerBox>
-            <FrontCard style={{transform: (mycard) ? "" : "rotateY(180deg)"}}>
-                front
-            </FrontCard>
-            <BackCard style={{transform: (mycard) ? "rotateY(180deg)" : ""}}>
+    const cardRender = () => {
+        if (selectCard === item) {
+            return (
+                <SelectCardContainer onClick={onClickCardChoiceHandler} width='55px' height='73px'>
+                    <CardInnerBox>
+                        <FrontCard style={{transform: (mycard) ? "" : "rotateY(180deg)"}}>
+                            front
+                        </FrontCard>
+                        <BackCard style={{transform: (mycard) ? "rotateY(180deg)" : ""}}>
 
-            </BackCard>
-        </CardInnerBox>
-    </CardContainer>
+                        </BackCard>
+                    </CardInnerBox>
+                </SelectCardContainer>
+            )
+        } else {
+            return (
+                <CardContainer onClick={onClickCardChoiceHandler} width='55px' height='73px'>
+                    <CardInnerBox>
+                        <FrontCard style={{transform: (mycard) ? "" : "rotateY(180deg)"}}>
+                            front
+                        </FrontCard>
+                        <BackCard style={{transform: (mycard) ? "rotateY(180deg)" : ""}}>
+
+                        </BackCard>
+                    </CardInnerBox>
+                </CardContainer>
+            )
+        };
+    };
+
+  return (
+    <div>
+        {cardRender()}
+    </div>
   )
 };
 
@@ -35,6 +60,19 @@ const CardInnerBox = styled.div`
     height: 100%;
     transform-style: preserve-3d;
     transition: all 0.5s;
+`;
+
+const SelectCardContainer = styled.div<{ width : string, height : string }>`
+    width: ${(props) => props.width};
+    height: ${(props) => props.height};
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #222020;
+    border-radius: 5px;
+    perspective: 1000px;
+    transition: all 0.3s;
+    transform: translateY(-10%) scale(105%);
+    cursor: pointer;
 `;
 
 const CardContainer = styled.div<{ width : string, height : string }>`

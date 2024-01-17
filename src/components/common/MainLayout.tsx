@@ -26,6 +26,7 @@ const MainLayoutContainer = styled.div`
   align-items: center;
   background-color: beige;
   color: #222020;
+  font-family: "Pretendard";
 `;
 
 const MainContentWrapper = styled.div`

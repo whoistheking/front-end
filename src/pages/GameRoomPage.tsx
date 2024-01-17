@@ -16,7 +16,7 @@ const GameRoomPage = () => {
   return (
     <GameRoomLayout>
       <TopLineButton />
-      <UserStandbyList />
+      <UserStandbyList gamestart={true}/>
       <SelectStatusText>
         멍지니 님이 나 의 카드를 고르는 중...
       </SelectStatusText>
@@ -52,8 +52,8 @@ const GameRoomLayout = styled.div`
 `;
 
 const SelectStatusText = styled.div`
-  font-size: 16px;
-  font-weight: 400;
+  font-size: 18px;
+  font-weight: 500;
   line-height: normal;
   color: #676767;
   margin-top: 8px;
@@ -62,7 +62,7 @@ const SelectStatusText = styled.div`
 
 const AllChoiceWrapper = styled.div`
   width: 96%;
-  height: 200px;
+  height: 180px;
   margin: 0px auto;
   display: flex;
   flex-direction: column;
@@ -74,12 +74,12 @@ const ChoiceContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 24px;
 `;
 
 const ChoiceText = styled.div`
-  font-size: 17px;
-  font-weight: 400;
+  font-size: 20px;
+  font-weight: 600;
   line-height: normal;
   user-select: none;
   color: #676767;
@@ -90,16 +90,19 @@ const ButtonWrapper = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 32px;
+  gap: 40px;
 `;
 
 const Button = styled.button<{ color : string }>`
-  width: 70px;
-  height: 30px;
+  width: 80px;
+  height: 36px;
   border-radius: 3px;
   border: none;
   color: #FFFFFF;
   background-color: ${(props) => props.color};
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
   user-select: none;
   transition: all 0.2s;
   cursor: pointer;

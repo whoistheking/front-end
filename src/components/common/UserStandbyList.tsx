@@ -1,64 +1,35 @@
 import React from 'react'
 import styled from 'styled-components';
 
-const UserStandbyList = () => {
+interface UserStandbyListProps {
+    gamestart: boolean;
+};
+
+const UserStandbyList : React.FC<UserStandbyListProps> = ({ gamestart }) => {
+
+    const userArr : any = [0, 1, 2, 3, 4];
+
   return (
     <UserListContainer>
-        <UserCardContainer>
-            <ReadyStatusBox>
-                Ready!
-            </ReadyStatusBox>
-            <UserNicknameBox>
-                UserStandbyList
-            </UserNicknameBox>
-            <CardBox>
-                
-            </CardBox>
-        </UserCardContainer>
-        <UserCardContainer>
-            <ReadyStatusBox>
-                Ready!
-            </ReadyStatusBox>
-            <UserNicknameBox>
-                UserStandbyList
-            </UserNicknameBox>
-            <CardBox>
-                
-            </CardBox>
-        </UserCardContainer>
-        <UserCardContainer>
-            <ReadyStatusBox>
-                Ready!
-            </ReadyStatusBox>
-            <UserNicknameBox>
-                UserStandbyList
-            </UserNicknameBox>
-            <CardBox>
-                
-            </CardBox>
-        </UserCardContainer>
-        <UserCardContainer>
-            <WaitStatusBox>
-                Wait...
-            </WaitStatusBox>
-            <UserNicknameBox>
-                UserStandbyList
-            </UserNicknameBox>
-            <CardBox>
-                
-            </CardBox>
-        </UserCardContainer>
-        <UserCardContainer>
-            <ReadyStatusBox>
-                Ready!
-            </ReadyStatusBox>
-            <UserNicknameBox>
-                멍지니
-            </UserNicknameBox>
-            <CardBox>
-                
-            </CardBox>
-        </UserCardContainer>
+        {userArr?.map((item : any) => {
+            return (
+                <UserCardContainer key={item}>
+                    {(gamestart)
+                        ? <WaitStatusBox>
+                            Turn
+                        </WaitStatusBox>
+                        : <ReadyStatusBox>
+                            Ready!
+                        </ReadyStatusBox>}
+                    <UserNicknameBox>
+                        UserStandbyList
+                    </UserNicknameBox>
+                    <CardBox>
+                        
+                    </CardBox>
+                </UserCardContainer>
+            )
+        })}
     </UserListContainer>
   )
 };
@@ -107,7 +78,7 @@ const UserNicknameBox = styled.div`
     background-color: #D2C0A7;
     font-size: 11px;
     font-weight: 700;
-    line-height: normal;
+    line-height: 150%;
     word-break: break-word;
 `;
 
