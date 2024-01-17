@@ -1,8 +1,13 @@
 import { styled } from "styled-components";
 
-export const StBasicButton = styled.button<{ width: string; height: string }>`
+export const StBasicButton = styled.button<{
+  width: string;
+  height: string;
+  color: string;
+}>`
   width: ${(props) => props.width};
   height: ${(props) => props.height};
+  color: ${(props) => props.color};
   background-color: #c4ae8d;
   box-shadow: #745322ba 0px 3px 2px 1px;
   border: none;

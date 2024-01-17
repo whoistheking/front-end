@@ -22,11 +22,21 @@ const WaitingRoomPage = () => {
       <LogoContainer>쿼카를 잡아랏!</LogoContainer>
       <ButtonContainer>
         {button ? (
-          <StBasicButton width="120px" height="40px" onClick={ButtonOnclick}>
+          <StBasicButton
+            width="120px"
+            height="40px"
+            color="black"
+            onClick={ButtonOnclick}
+          >
             READY!
           </StBasicButton>
         ) : (
-          <StBasicButton width="120px" height="40px" onClick={ButtonOnclick}>
+          <StBasicButton
+            width="120px"
+            height="40px"
+            color="red"
+            onClick={ButtonOnclick}
+          >
             CANCEL
           </StBasicButton>
         )}
