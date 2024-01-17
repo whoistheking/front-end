@@ -14,6 +14,7 @@ export const BorderButton = styled.button<{ width : string, height : string }>`
     line-height: 100%;
     box-shadow: #F4D5D5 0px 3px 2px 1px;
     border: none;
+    user-select: none;
     cursor: pointer;
 
     &:active {
