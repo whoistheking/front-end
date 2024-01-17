@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import UserStandbyList from "../components/common/UserStandbyList";
 import { StBasicButton } from "../styles/BasicButton";
+import TopLineButton from "../components/common/TopLineButton";
 
 const WaitingRoomPage = () => {
   const [button, setButton] = useState<boolean>(false);
@@ -11,7 +12,8 @@ const WaitingRoomPage = () => {
   };
   return (
     <div>
-      <UserStandbyList />
+      <TopLineButton />
+      <UserStandbyList gamestart={false}/>
       <IdContainer>
         <IdBoxContainer>
           <Id>
