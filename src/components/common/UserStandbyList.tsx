@@ -38,9 +38,9 @@ const UserStandbyList = () => {
             </CardBox>
         </UserCardContainer>
         <UserCardContainer>
-            <ReadyStatusBox>
-                Ready!
-            </ReadyStatusBox>
+            <WaitStatusBox>
+                Wait...
+            </WaitStatusBox>
             <UserNicknameBox>
                 UserStandbyList
             </UserNicknameBox>
@@ -86,6 +86,13 @@ const ReadyStatusBox = styled.div`
     line-height: normal;
 `;
 
+const WaitStatusBox = styled.div`
+    font-size: 16px;
+    font-weight: 700;
+    line-height: normal;
+    color: #E30000;
+`;
+
 const UserNicknameBox = styled.div`
     width: 70px;
     height: 30px;
@@ -98,8 +105,8 @@ const UserNicknameBox = styled.div`
 `;
 
 const CardBox = styled.div`
-    width: 58px;
-    height: 77px;
+    width: 70px;
+    height: 100px;
     border: 1px dotted #222020;
     background-color: #DCCFBD;
     display: flex;
