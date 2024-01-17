@@ -64,13 +64,17 @@ const UserStandbyList = () => {
 };
 
 const UserListContainer = styled.div`
-    width: 96%;
+    width: 550px;
     margin: 0px auto;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 18px;
+    gap: 24px;
+
+    @media screen and (max-width: 550px) {
+        width: 96%;
+    }
 `;
 
 const UserCardContainer = styled.div`
@@ -78,23 +82,26 @@ const UserCardContainer = styled.div`
     flex-direction: column;
     align-items: center;
     gap: 5px;
+    width: 100%;
 `;
 
 const ReadyStatusBox = styled.div`
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 700;
     line-height: normal;
+    user-select: none;
 `;
 
 const WaitStatusBox = styled.div`
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 700;
     line-height: normal;
     color: #E30000;
+    user-select: none;
 `;
 
 const UserNicknameBox = styled.div`
-    width: 70px;
+    width: 100%;
     height: 30px;
     border: 1px dotted #222020;
     background-color: #D2C0A7;
@@ -105,8 +112,8 @@ const UserNicknameBox = styled.div`
 `;
 
 const CardBox = styled.div`
-    width: 70px;
-    height: 100px;
+    width: 100%;
+    height: 90px;
     border: 1px dotted #222020;
     background-color: #DCCFBD;
     display: flex;

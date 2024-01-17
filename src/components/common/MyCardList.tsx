@@ -10,7 +10,7 @@ const MyCardList = () => {
     <MyCardListContainer>
         {cardArr?.map((item : number) => {
             return (
-                <PokerCard key={item} mycard={true}/>
+                <PokerCard key={item} mycard={true} item={item}/>
             )
         })}
     </MyCardListContainer>
@@ -27,6 +27,7 @@ const MyCardListContainer = styled.div`
     flex-wrap: wrap;
     position: relative;
     gap: 5px;
+    margin-bottom: 14px;
 
     @media screen and (max-width: 550px) {
         width: 96%;
