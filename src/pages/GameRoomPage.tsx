@@ -69,7 +69,7 @@ const SelectStatusTextWrapper = styled.div`
 
 const SelectStatusText = styled.div`
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 400;
   line-height: normal;
   color: #676767;
   user-select: none;
@@ -80,7 +80,7 @@ const SelectStatusText = styled.div`
 `;
 
 const UserContent = styled.div`
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 700;
   line-height: normal;
   color: #222020;

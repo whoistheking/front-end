@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
-import Logo from '../assets/logo/logo_example.png';
+import Logo from '../assets/logo/mainlogoimage.webp';
 import KakaoLogin from '../components/LoginPage/KakaoLogin';
 import NaverLogin from '../components/LoginPage/NaverLogin';
 import GoogleLogin from '../components/LoginPage/GoogleLogin';
@@ -30,9 +30,10 @@ const ContentWrapper = styled.div`
 `;
 
 const LogoImage = styled.img`
-  width: 300px;
-  height: 150px;
+  width: 400px;
+  height: 300px;
   object-fit: contain;
+  user-select: none;
 `;
 
 const ButtonWrapper = styled.div`
