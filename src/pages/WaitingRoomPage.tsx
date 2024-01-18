@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import UserStandbyList from "../components/common/UserStandbyList";
 import { StBasicButton } from "../styles/BasicButton";
+import TopLineButton from "../components/common/TopLineButton";
 
 const WaitingRoomPage = () => {
   const [button, setButton] = useState<boolean>(false);
@@ -10,8 +11,12 @@ const WaitingRoomPage = () => {
     setButton(!button);
   };
   return (
-    <div>
-      <UserStandbyList />
+    <GameRoomLayout>
+      <TopLineButton />
+      <div style={{ marginTop: "20px" }}>
+        <UserStandbyList />
+      </div>
+
       <IdContainer>
         <IdBoxContainer>
           <Id>
@@ -25,7 +30,7 @@ const WaitingRoomPage = () => {
           <StBasicButton
             width="120px"
             height="40px"
-            color="black"
+            color="white"
             onClick={ButtonOnclick}
           >
             READY!
@@ -41,16 +46,25 @@ const WaitingRoomPage = () => {
           </StBasicButton>
         )}
       </ButtonContainer>
-    </div>
+    </GameRoomLayout>
   );
 };
+
+const GameRoomLayout = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
 const IdContainer = styled.div`
   width: 96%;
   margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 100px;
+  margin-top: 40px;
 `;
 
 const IdBoxContainer = styled.div`
@@ -86,7 +100,7 @@ const LogoContainer = styled.div`
   color: #fff;
   font-size: 40px;
   font-weight: 800;
-  margin: 80px 0px 161px 0px;
+  margin: 90px 0px 330px 0px;
 `;
 
 const ButtonContainer = styled.div`
