@@ -29,6 +29,7 @@ const ChoiceCardList = () => {
 
 const CardListContainer = styled.div`
     width: 550px;
+    height: 280px;
     margin: 0px auto;
     display: flex;
     flex-direction: row;

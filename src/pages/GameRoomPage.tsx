@@ -25,16 +25,18 @@ const GameRoomPage = () => {
     <GameRoomLayout>
       <TopLineButton />
       <UserStandbyList gamestart={true}/>
-      <SelectStatusText>
-        <UserContent>
-          멍지니
-        </UserContent>
-        님이
-        <UserContent>
-          나
-        </UserContent>
-        의 카드를 고르는 중...
-      </SelectStatusText>
+      <SelectStatusTextWrapper>
+        <SelectStatusText>
+          <UserContent>
+            멍지니
+          </UserContent>
+          님이
+          <UserContent>
+            나
+          </UserContent>
+          의 카드를 고르는 중...
+        </SelectStatusText>
+      </SelectStatusTextWrapper>
       <ChoiceCardList/>
       <AllChoiceWrapper>
         {(isChoice)
@@ -69,12 +71,16 @@ const GameRoomLayout = styled.div`
   align-items: center;
 `;
 
+const SelectStatusTextWrapper = styled.div`
+  height: 20px;
+  margin-top: 8px;
+`;
+
 const SelectStatusText = styled.div`
   font-size: 18px;
   font-weight: 500;
   line-height: normal;
   color: #676767;
-  margin-top: 8px;
   user-select: none;
   display: flex;
   flex-direction: row;

@@ -9,7 +9,7 @@ const Redirection = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        
+      navigate("/main");
     }, []);
 
   return (
