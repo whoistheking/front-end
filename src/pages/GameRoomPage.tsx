@@ -1,17 +1,16 @@
-import React, { useState } from 'react'
-import styled from 'styled-components';
-import UserStandbyList from '../components/common/UserStandbyList';
-import TopLineButton from '../components/common/TopLineButton';
-import ChoiceCardList from '../components/common/ChoiceCardList';
-import MyCardList from '../components/common/MyCardList';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../redux/config/configureStore';
-import { cardClick } from '../redux/module/CardChoiceSlice';
+import React, { useState } from "react";
+import styled from "styled-components";
+import UserStandbyList from "../components/common/UserStandbyList";
+import TopLineButton from "../components/common/TopLineButton";
+import ChoiceCardList from "../components/common/ChoiceCardList";
+import MyCardList from "../components/common/MyCardList";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../redux/config/configureStore";
+import { cardClick } from "../redux/module/CardChoiceSlice";
 
 const GameRoomPage = () => {
-
   const dispatch = useDispatch();
-  const isChoice = useSelector((state : RootState) => state.cardChoice.value);
+  const isChoice = useSelector((state: RootState) => state.cardChoice.value);
 
   // const [getCard, setGetCard] = useState<{
   //   isget: boolean,
@@ -24,42 +23,34 @@ const GameRoomPage = () => {
   return (
     <GameRoomLayout>
       <TopLineButton />
-      <UserStandbyList gamestart={true}/>
+      <UserStandbyList gamestart={true} />
       <SelectStatusTextWrapper>
         <SelectStatusText>
-          <UserContent>
-            멍지니
-          </UserContent>
+          <UserContent>멍지니</UserContent>
           님이
-          <UserContent>
-            나
-          </UserContent>
-          의 카드를 고르는 중...
+          <UserContent>나</UserContent>의 카드를 고르는 중...
         </SelectStatusText>
       </SelectStatusTextWrapper>
-      <ChoiceCardList/>
+      <ChoiceCardList />
       <AllChoiceWrapper>
-        {(isChoice)
-          && <ChoiceContainer>
-            <ChoiceText>
-              정말 이 카드를 선택하시겠습니까?
-            </ChoiceText>
+        {isChoice && (
+          <ChoiceContainer>
+            <ChoiceText>정말 이 카드를 선택하시겠습니까?</ChoiceText>
             <ButtonWrapper>
-              <Button
-                color='#000E8E'>
-                확인
-              </Button>
+              <Button color="#000E8E">확인</Button>
               <Button
                 onClick={() => dispatch(cardClick(undefined))}
-                color='#FF6D6D'>
+                color="#FF6D6D"
+              >
                 취소
               </Button>
             </ButtonWrapper>
-          </ChoiceContainer>}
-        </AllChoiceWrapper>
+          </ChoiceContainer>
+        )}
+      </AllChoiceWrapper>
       <MyCardList />
     </GameRoomLayout>
-  )
+  );
 };
 
 const GameRoomLayout = styled.div`
@@ -128,12 +119,12 @@ const ButtonWrapper = styled.div`
   gap: 30px;
 `;
 
-const Button = styled.button<{ color : string }>`
+const Button = styled.button<{ color: string }>`
   width: 70px;
   height: 30px;
   border-radius: 3px;
   border: none;
-  color: #FFFFFF;
+  color: #ffffff;
   background-color: ${(props) => props.color};
   font-family: "Pretendard";
   font-size: 16px;

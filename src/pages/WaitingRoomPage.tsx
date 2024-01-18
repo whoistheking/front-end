@@ -11,9 +11,11 @@ const WaitingRoomPage = () => {
     setButton(!button);
   };
   return (
-    <div>
+    <GameRoomLayout>
       <TopLineButton />
-      <UserStandbyList gamestart={false}/>
+      <div style={{ marginTop: "20px" }}>
+        <UserStandbyList gamestart={false} />
+      </div>
       <IdContainer>
         <IdBoxContainer>
           <Id>
@@ -24,25 +26,44 @@ const WaitingRoomPage = () => {
       <LogoContainer>쿼카를 잡아랏!</LogoContainer>
       <ButtonContainer>
         {button ? (
-          <StBasicButton width="120px" height="40px" onClick={ButtonOnclick}>
+          <StBasicButton
+            width="120px"
+            height="40px"
+            color="white"
+            onClick={ButtonOnclick}
+          >
             READY!
           </StBasicButton>
         ) : (
-          <StBasicButton width="120px" height="40px" onClick={ButtonOnclick}>
+          <StBasicButton
+            width="120px"
+            height="40px"
+            color="red"
+            onClick={ButtonOnclick}
+          >
             CANCEL
           </StBasicButton>
         )}
       </ButtonContainer>
-    </div>
+    </GameRoomLayout>
   );
 };
+
+const GameRoomLayout = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
 const IdContainer = styled.div`
   width: 96%;
   margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 100px;
+  margin-top: 40px;
 `;
 
 const IdBoxContainer = styled.div`
@@ -78,7 +99,7 @@ const LogoContainer = styled.div`
   color: #fff;
   font-size: 40px;
   font-weight: 800;
-  margin: 80px 0px 161px 0px;
+  margin: 90px 0px 330px 0px;
 `;
 
 const ButtonContainer = styled.div`
