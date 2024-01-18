@@ -34,7 +34,7 @@ export const LoginButton = styled.button<{ backgroundcolor: string, color: strin
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 30px;
+  gap: 40px;
   background-color: ${(props) => props.backgroundcolor};
   color: ${(props) => props.color};
   border: none;
@@ -60,7 +60,7 @@ export const ButtonText = styled.div`
   justify-content: start;
   align-items: center;
   font-family: 'NanumBaReunHiPi';
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 800;
   line-height: normal;
 `;
