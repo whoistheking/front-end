@@ -107,7 +107,7 @@ const ChoiceContainer = styled.div`
 `;
 
 const ChoiceText = styled.div`
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 600;
   line-height: normal;
   user-select: none;
@@ -123,8 +123,8 @@ const ButtonWrapper = styled.div`
 `;
 
 const Button = styled.button<{ color : string }>`
-  width: 80px;
-  height: 36px;
+  width: 70px;
+  height: 30px;
   border-radius: 3px;
   border: none;
   color: #FFFFFF;

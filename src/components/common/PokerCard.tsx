@@ -130,7 +130,7 @@ const BackCard = styled.div`
     top: 0;
     left: 0;
     backface-visibility: hidden;
-    background-color: pink;
+    background-color: #ffadbb;
 `;
 
 export default PokerCard;

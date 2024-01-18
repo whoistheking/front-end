@@ -14,15 +14,15 @@ const KakaoLogin = () => {
 
   return (
     <LoginButton
-        color='#222020'
-        backgroundcolor='#fee500'
-        onClick={KakaoLoginButtonHandler}>
-        <IconWrapper>
-            <ButtonIcons src={Kakao} alt='google' />
-        </IconWrapper>
-        <ButtonText>
-            카카오 로그인
-        </ButtonText>
+      color='#222020'
+      backgroundcolor='#fee500'
+      onClick={KakaoLoginButtonHandler}>
+      <IconWrapper>
+        <ButtonIcons src={Kakao} alt='google' />
+      </IconWrapper>
+      <ButtonText>
+        카카오 로그인
+      </ButtonText>
     </LoginButton>
   )
 };
