@@ -2,6 +2,13 @@ import React from 'react'
 import styled from 'styled-components';
 import PokerCard from './PokerCard';
 
+// interface ChoiceCardListProps {
+//     getCard: {
+//         isget: boolean,
+//         cardvalue: number | undefined
+//     };
+// };
+
 const ChoiceCardList = () => {
 
     const cardArr : number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18];
@@ -10,7 +17,10 @@ const ChoiceCardList = () => {
     <CardListContainer>
         {cardArr?.map((item : number) => {
             return (
-                <PokerCard key={item} mycard={false} item={item}/>
+                <PokerCard
+                    key={item}
+                    mycard={false}
+                    item={item}/>
             )
         })}
     </CardListContainer>
@@ -19,6 +29,7 @@ const ChoiceCardList = () => {
 
 const CardListContainer = styled.div`
     width: 550px;
+    height: 280px;
     margin: 0px auto;
     display: flex;
     flex-direction: row;

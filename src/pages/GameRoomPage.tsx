@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import UserStandbyList from "../components/common/UserStandbyList";
 import TopLineButton from "../components/common/TopLineButton";
@@ -12,11 +12,25 @@ const GameRoomPage = () => {
   const dispatch = useDispatch();
   const isChoice = useSelector((state: RootState) => state.cardChoice.value);
 
+  // const [getCard, setGetCard] = useState<{
+  //   isget: boolean,
+  //   cardvalue: number | undefined
+  // }>({
+  //   isget: false,
+  //   cardvalue: undefined
+  // });
+
   return (
     <GameRoomLayout>
       <TopLineButton />
-      <UserStandbyList />
-      <SelectStatusText>멍지니 님이 나 의 카드를 고르는 중...</SelectStatusText>
+      <UserStandbyList gamestart={true} />
+      <SelectStatusTextWrapper>
+        <SelectStatusText>
+          <UserContent>멍지니</UserContent>
+          님이
+          <UserContent>나</UserContent>의 카드를 고르는 중...
+        </SelectStatusText>
+      </SelectStatusTextWrapper>
       <ChoiceCardList />
       <AllChoiceWrapper>
         {isChoice && (
@@ -48,18 +62,33 @@ const GameRoomLayout = styled.div`
   align-items: center;
 `;
 
+const SelectStatusTextWrapper = styled.div`
+  height: 20px;
+  margin-top: 8px;
+`;
+
 const SelectStatusText = styled.div`
-  font-size: 16px;
-  font-weight: 400;
+  font-size: 18px;
+  font-weight: 500;
   line-height: normal;
   color: #676767;
-  margin-top: 8px;
   user-select: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+`;
+
+const UserContent = styled.div`
+  font-size: 18px;
+  font-weight: 700;
+  line-height: normal;
+  color: #222020;
 `;
 
 const AllChoiceWrapper = styled.div`
   width: 96%;
-  height: 200px;
+  height: 80px;
   margin: 0px auto;
   display: flex;
   flex-direction: column;
@@ -75,8 +104,8 @@ const ChoiceContainer = styled.div`
 `;
 
 const ChoiceText = styled.div`
-  font-size: 17px;
-  font-weight: 400;
+  font-size: 18px;
+  font-weight: 600;
   line-height: normal;
   user-select: none;
   color: #676767;
@@ -87,7 +116,7 @@ const ButtonWrapper = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 32px;
+  gap: 30px;
 `;
 
 const Button = styled.button<{ color: string }>`
@@ -97,12 +126,18 @@ const Button = styled.button<{ color: string }>`
   border: none;
   color: #ffffff;
   background-color: ${(props) => props.color};
+  font-family: "Pretendard";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
   user-select: none;
   transition: all 0.2s;
   cursor: pointer;
 
   &:hover {
     box-shadow: ${(props) => props.color} 0 0 3px 0;
+    color: #e9e9e9;
+    font-weight: 500;
   }
 `;
 

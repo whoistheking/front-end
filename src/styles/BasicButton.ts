@@ -20,6 +20,8 @@ export const StBasicButton = styled.button<{
   font-size: 28px;
   font-weight: 500;
   line-height: normal;
+  text-shadow: 0px 0px 3px #513710;
+  color: #FFFFFF;
   cursor: pointer;
 
   &:active {

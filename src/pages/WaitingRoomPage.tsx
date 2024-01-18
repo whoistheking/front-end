@@ -14,9 +14,8 @@ const WaitingRoomPage = () => {
     <GameRoomLayout>
       <TopLineButton />
       <div style={{ marginTop: "20px" }}>
-        <UserStandbyList />
+        <UserStandbyList gamestart={false} />
       </div>
-
       <IdContainer>
         <IdBoxContainer>
           <Id>

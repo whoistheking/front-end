@@ -7,6 +7,7 @@ import LoginPage from './pages/LoginPage';
 import MainLayout from './components/common/MainLayout';
 import GameRoomPage from './pages/GameRoomPage';
 import WaitingRoomPage from './pages/WaitingRoomPage';
+import Redirection from './pages/Redirection';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Routes>
           <Route element={<MainLayout />}>
             <Route path='/' element={<LoginPage />} />
+            <Route path='/login' element={<Redirection />} />
             <Route path='/main' element={<MainPage />} />
             <Route path='/gameroom/waiting' element={<WaitingRoomPage />} />
             <Route path='/gameroom/start' element={<GameRoomPage />} />

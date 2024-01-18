@@ -1,16 +1,23 @@
 import React from 'react'
 import styled from 'styled-components';
-import { BorderButton } from '../../styles/BorderButton';
+import { StBorderButton } from '../../styles/BorderButton';
+import { useNavigate } from 'react-router-dom';
 
 const TopLineButton = () => {
+
+  const navigate = useNavigate();
+
   return (
     <TopLineButtonContainer>
-      <BorderButton width='70px' height='30px'>
+      <StBorderButton width='70px' height='30px'>
         Button
-      </BorderButton>
-      <BorderButton width='70px' height='30px'>
-        Button
-      </BorderButton>
+      </StBorderButton>
+      <StBorderButton
+        width='70px'
+        height='30px'
+        onClick={() => navigate("/main")}>
+        나가기
+      </StBorderButton>
     </TopLineButtonContainer>
   )
 };
