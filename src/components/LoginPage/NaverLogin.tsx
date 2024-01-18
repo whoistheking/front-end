@@ -16,15 +16,15 @@ const NaverLogin = () => {
 
   return (
     <LoginButton
-        color='#FFFFFF'
-        backgroundcolor='#02c75a'
-        onClick={NaverLoginButtonHandler}>
-        <IconWrapper>
-            <ButtonIcons src={Naver} alt='google' />
-        </IconWrapper>
-        <ButtonText>
-            네이버 로그인
-        </ButtonText>
+      color='#FFFFFF'
+      backgroundcolor='#02c75a'
+      onClick={NaverLoginButtonHandler}>
+      <IconWrapper>
+        <ButtonIcons src={Naver} alt='google' />
+      </IconWrapper>
+      <ButtonText>
+        네이버 로그인
+      </ButtonText>
     </LoginButton>
   )
 };

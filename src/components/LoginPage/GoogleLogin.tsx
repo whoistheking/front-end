@@ -6,12 +6,12 @@ import { IconWrapper, ButtonIcons, ButtonText } from './KakaoLogin';
 const GoogleLogin = () => {
   return (
     <GoogleLoginButton>
-        <IconWrapper>
-            <ButtonIcons src={Google} alt='google' />
-        </IconWrapper>
-        <ButtonText>
-            구글 로그인
-        </ButtonText>
+      <IconWrapper>
+        <ButtonIcons src={Google} alt='google' />
+      </IconWrapper>
+      <ButtonText>
+        구글 로그인
+      </ButtonText>
     </GoogleLoginButton>
   )
 };
