@@ -3,6 +3,7 @@ import styled from "styled-components";
 import UserStandbyList from "../components/common/UserStandbyList";
 import { StBasicButton } from "../styles/BasicButton";
 import TopLineButton from "../components/common/TopLineButton";
+import LogoImage from "../assets/logo/mainlogoimage.webp";
 
 const WaitingRoomPage = () => {
   const [button, setButton] = useState<boolean>(false);
@@ -23,7 +24,7 @@ const WaitingRoomPage = () => {
           </Id>
         </IdBoxContainer>
       </IdContainer>
-      <LogoContainer>쿼카를 잡아랏!</LogoContainer>
+      <LogoContainer src={LogoImage} alt=''/>
       <ButtonContainer>
         {button ? (
           <StBasicButton
@@ -95,11 +96,11 @@ const Copy = styled.div`
   cursor: pointer;
 `;
 
-const LogoContainer = styled.div`
-  color: #fff;
-  font-size: 40px;
-  font-weight: 800;
-  margin: 90px 0px 330px 0px;
+const LogoContainer = styled.img`
+  width: 300px;
+  height: 220px;
+  object-fit: contain;
+  margin: 40px 0px 120px 0px;
 `;
 
 const ButtonContainer = styled.div`
