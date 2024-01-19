@@ -3,7 +3,7 @@ import styled from "styled-components";
 import UserStandbyList from "../components/common/UserStandbyList";
 import { StBasicButton } from "../styles/BasicButton";
 import TopLineButton from "../components/common/TopLineButton";
-import LogoImage from "../assets/logo/mainlogoimage.webp";
+import LogoImage from "../assets/logo/mainlogo_image.webp";
 
 const WaitingRoomPage = () => {
   const [button, setButton] = useState<boolean>(false);

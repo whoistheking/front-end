@@ -148,7 +148,6 @@ const ChoiceText = styled.div`
   font-weight: 600;
   line-height: normal;
   user-select: none;
-  color: #676767;
 
   @media screen and (max-width: 550px) {
     font-size: 14px;

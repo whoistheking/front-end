@@ -2,14 +2,18 @@ import React from 'react'
 import { Outlet } from 'react-router-dom';
 import styled from 'styled-components';
 import Banner from './Banner';
+import Background from '../../assets/images/background_image.webp';
 
 const MainLayout = () => {
   return (
     <MainLayoutContainer>
       <MainContentWrapper>
         <Banner />
-        <PageLayout backgroundcolor='#E8DECF'>
-          <Outlet />
+        <PageLayout>
+          <BackgroundImage src={Background} alt=''/>
+          <PageInWrapper>
+            <Outlet />
+          </PageInWrapper>
         </PageLayout>
       </MainContentWrapper>
     </MainLayoutContainer>
@@ -57,15 +61,34 @@ const MainContentWrapper = styled.div`
   }
 `;
 
-const PageLayout = styled.div<{ backgroundcolor : string }>`
+const PageLayout = styled.div`
   min-width: 570px;
   height: 100%;
-  background-color: ${(props) => props.backgroundcolor};
   overflow-y: auto;
+  position: relative;
 
   @media screen and (max-width: 570px) {
     min-width: 100%;
   }
+`;
+
+const PageInWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+`;
+
+const BackgroundImage = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9;
 `;
 
 export default MainLayout;
