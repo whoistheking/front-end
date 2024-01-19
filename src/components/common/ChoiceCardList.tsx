@@ -38,8 +38,14 @@ const CardListContainer = styled.div`
     flex-wrap: wrap;
     gap: 5px;
 
+    @media screen and (max-width: 1600px) {
+        height: 160px;
+    }
+
     @media screen and (max-width: 550px) {
         width: 96%;
+        height: 180px;
+        gap: 2px;
     }
 `;
 

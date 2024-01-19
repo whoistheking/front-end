@@ -18,14 +18,19 @@ const PokerCard : React.FC<PokerCardProps> = ({ mycard, item }) => {
         if (mycard) {
             return;
         } else {
-            dispatch(cardClick(item));
+            if (selectCard === item) {
+                dispatch(cardClick(undefined));
+            } else {
+                dispatch(cardClick(item));
+            };
+            
         };
     };
 
     const cardRender = () => {
         if ((selectCard === item) && !mycard) {
             return (
-                <SelectCardContainer onClick={onClickCardChoiceHandler} width='66px' height='88px'>
+                <SelectCardContainer onClick={onClickCardChoiceHandler}>
                     <SelectCardInnerBox>
                         <FrontCard style={{transform: (mycard) ? "" : "rotateY(180deg)"}}>
                             front
@@ -38,7 +43,7 @@ const PokerCard : React.FC<PokerCardProps> = ({ mycard, item }) => {
             )
         } else {
             return (
-                <CardContainer onClick={onClickCardChoiceHandler} width='66px' height='88px'>
+                <CardContainer onClick={onClickCardChoiceHandler}>
                     <CardInnerBox>
                         <FrontCard style={{transform: (mycard) ? "" : "rotateY(180deg)"}}>
                             front
@@ -69,19 +74,29 @@ const CardViewAnimation = keyframes`
     }
 `;
 
-const SelectCardContainer = styled.div<{ width : string, height : string }>`
-    width: ${(props) => props.width};
-    height: ${(props) => props.height};
+const SelectCardContainer = styled.div`
+    width: 66px;
+    height: 88px;
     position: relative;
     perspective: 1000px;
     transition: all 0.3s;
     transform: translateY(-10%) scale(105%);
     cursor: pointer;
+
+    @media screen and (max-width: 1600px) {
+        width: 55px;
+        height: 73px;
+    }
+
+    @media screen and (max-width: 550px) {
+        width: 42px;
+        height: 56px;
+    }
 `;
 
-const CardContainer = styled.div<{ width : string, height : string }>`
-    width: ${(props) => props.width};
-    height: ${(props) => props.height};
+const CardContainer = styled.div`
+    width: 66px;
+    height: 88px;
     position: relative;
     perspective: 1000px;
     cursor: pointer;
@@ -89,6 +104,16 @@ const CardContainer = styled.div<{ width : string, height : string }>`
     &:hover {
         transition: all 0.3s;
         transform: translateY(-10%) scale(105%);
+    }
+
+    @media screen and (max-width: 1600px) {
+        width: 55px;
+        height: 73px;
+    }
+
+    @media screen and (max-width: 550px) {
+        width: 42px;
+        height: 56px;
     }
 `;
 

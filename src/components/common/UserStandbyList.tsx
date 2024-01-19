@@ -41,10 +41,15 @@ const UserListContainer = styled.div`
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 24px;
+    gap: 30px;
+
+    @media screen and (max-width: 1600px) {
+        gap: 24px;
+    }
 
     @media screen and (max-width: 550px) {
         width: 96%;
+        gap: 8px;
     }
 `;
 
@@ -56,30 +61,37 @@ const UserCardContainer = styled.div`
     width: 100%;
 `;
 
-const ReadyStatusBox = styled.div`
+export const ReadyStatusBox = styled.div`
     font-size: 18px;
     font-weight: 700;
     line-height: normal;
     user-select: none;
+
+    @media screen and (max-width: 550px) {
+        font-size: 14px;
+        font-weight: 600;
+    }
 `;
 
-const WaitStatusBox = styled.div`
-    font-size: 18px;
-    font-weight: 700;
-    line-height: normal;
+const WaitStatusBox = styled(ReadyStatusBox)`
     color: #E30000;
-    user-select: none;
 `;
 
 const UserNicknameBox = styled.div`
     width: 100%;
-    height: 30px;
+    height: 25px;
     border: 1px dotted #222020;
     background-color: #D2C0A7;
     font-size: 11px;
     font-weight: 700;
-    line-height: 150%;
+    line-height: 100%;
     word-break: break-word;
+    padding-top: 5px;
+
+    @media screen and (max-width: 550px) {
+        height: 15px;
+        font-size: 8px;
+    }
 `;
 
 const CardBox = styled.div`
@@ -90,6 +102,14 @@ const CardBox = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @media screen and (max-width: 1600px) {
+        height: 80px;
+    }
+
+    @media screen and (max-width: 550px) {
+        height: 66px;
+    }
 `;
 
 export default UserStandbyList;

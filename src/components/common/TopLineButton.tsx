@@ -9,12 +9,12 @@ const TopLineButton = () => {
 
   return (
     <TopLineButtonContainer>
-      <StBorderButton width='70px' height='30px'>
+      <StBorderButton width={70} height={30}>
         Button
       </StBorderButton>
       <StBorderButton
-        width='70px'
-        height='30px'
+        width={70}
+        height={30}
         onClick={() => navigate("/main")}>
         나가기
       </StBorderButton>
@@ -31,6 +31,7 @@ const TopLineButtonContainer = styled.div`
 
   @media screen and (max-width: 550px) {
     width: 96%;
+    margin-top: 10px;
   }
 `;
 

@@ -28,7 +28,8 @@ const GameRoomPage = () => {
         <SelectStatusText>
           <UserContent>멍지니</UserContent>
           님이
-          <UserContent>나</UserContent>의 카드를 고르는 중...
+          <UserContent>나</UserContent>
+          의 카드를 고르는 중...
         </SelectStatusText>
       </SelectStatusTextWrapper>
       <ChoiceCardList />
@@ -37,7 +38,10 @@ const GameRoomPage = () => {
           <ChoiceContainer>
             <ChoiceText>정말 이 카드를 선택하시겠습니까?</ChoiceText>
             <ButtonWrapper>
-              <Button color="#000E8E">확인</Button>
+              <Button
+                color="#000E8E">
+                확인
+              </Button>
               <Button
                 onClick={() => dispatch(cardClick(undefined))}
                 color="#FF6D6D"
@@ -65,6 +69,11 @@ const GameRoomLayout = styled.div`
 const SelectStatusTextWrapper = styled.div`
   height: 20px;
   margin-top: 8px;
+
+  @media screen and (max-width: 550px) {
+    height: 16px;
+    margin-top: 5px;
+  }
 `;
 
 const SelectStatusText = styled.div`
@@ -77,6 +86,10 @@ const SelectStatusText = styled.div`
   flex-direction: row;
   align-items: center;
   gap: 8px;
+
+  @media screen and (max-width: 550px) {
+    font-size: 14px;
+  }
 `;
 
 const UserContent = styled.div`
@@ -84,6 +97,11 @@ const UserContent = styled.div`
   font-weight: 700;
   line-height: normal;
   color: #222020;
+
+  @media screen and (max-width: 550px) {
+    font-size: 15px;
+    font-weight: 600;
+  }
 `;
 
 const AllChoiceWrapper = styled.div`
@@ -94,6 +112,10 @@ const AllChoiceWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  @media screen and (max-width: 550px) {
+    height: 60px;
+  }
 `;
 
 const ChoiceContainer = styled.div`
@@ -101,6 +123,10 @@ const ChoiceContainer = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 16px;
+
+  @media screen and (max-width: 550px) {
+    gap: 10px;
+  }
 `;
 
 const ChoiceText = styled.div`
@@ -109,6 +135,11 @@ const ChoiceText = styled.div`
   line-height: normal;
   user-select: none;
   color: #676767;
+
+  @media screen and (max-width: 550px) {
+    font-size: 14px;
+    font-weight: 500;
+  }
 `;
 
 const ButtonWrapper = styled.div`
@@ -117,6 +148,10 @@ const ButtonWrapper = styled.div`
   justify-content: center;
   align-items: center;
   gap: 30px;
+
+  @media screen and (max-width: 550px) {
+    gap: 16px;
+  }
 `;
 
 const Button = styled.button<{ color: string }>`
@@ -138,6 +173,12 @@ const Button = styled.button<{ color: string }>`
     box-shadow: ${(props) => props.color} 0 0 3px 0;
     color: #e9e9e9;
     font-weight: 500;
+  }
+
+  @media screen and (max-width: 550px) {
+    width: 58px;
+    height: 24px;
+    font-size: 12px;
   }
 `;
 

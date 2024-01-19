@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-export const StBorderButton = styled.button<{ width : string, height : string }>`
-    width: ${(props) => props.width};
-    height: ${(props) => props.height};
+export const StBorderButton = styled.button<{ width : number, height : number }>`
+    width: ${(props) => props.width}px;
+    height: ${(props) => props.height}px;
     background-color: #FBE7E7;
     border-radius: 30px;
     display: flex;
@@ -29,5 +29,11 @@ export const StBorderButton = styled.button<{ width : string, height : string }>
         color: #222020;
         text-shadow: 0px 0px 3px #000000;
         font-size: 17px;
+    }
+
+    @media screen and (max-width: 550px) {
+        width: ${(props) => props.width - 10}px;
+        height: ${(props) => props.height - 4}px;
+        font-size: 16px;
     }
 `;

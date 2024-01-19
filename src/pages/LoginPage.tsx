@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import Logo from '../assets/logo/mainlogoimage.webp';
 import KakaoLogin from '../components/LoginPage/KakaoLogin';
 import NaverLogin from '../components/LoginPage/NaverLogin';
@@ -18,6 +18,17 @@ const LoginPage = () => {
   )
 };
 
+const LogoAppear = keyframes`
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+`;
+
 const ContentWrapper = styled.div`
   width: 100%;
   height: 100%;
@@ -34,6 +45,7 @@ const LogoImage = styled.img`
   height: 300px;
   object-fit: contain;
   user-select: none;
+  animation: ${LogoAppear} 0.7s ease-out forwards;
 `;
 
 const ButtonWrapper = styled.div`
