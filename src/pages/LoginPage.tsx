@@ -1,6 +1,6 @@
 import React from 'react'
 import styled, { keyframes } from 'styled-components';
-import Logo from '../assets/logo/mainlogoimage.webp';
+import Logo from '../assets/logo/mainlogo_image.webp';
 import KakaoLogin from '../components/LoginPage/KakaoLogin';
 import NaverLogin from '../components/LoginPage/NaverLogin';
 import GoogleLogin from '../components/LoginPage/GoogleLogin';
