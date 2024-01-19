@@ -3,70 +3,47 @@ import styled from 'styled-components';
 
 interface UserStandbyListProps {
     gamestart: boolean;
+    userArr: any;
 };
 
-const UserStandbyList : React.FC<UserStandbyListProps> = ({ gamestart }) => {
-
-    const userArr : any = [
-        {id: 0, user: true, count: [0, 1, 2]},
-        {id: 1, user: true, count: [0, 1, 2, 3, 4, 5, 6]},
-        {id: 2, user: true, count: [0, 1, 2, 3, 4]},
-        {id: 3, user: true, count: [0]},
-        {id: 4, user: false, count: null},
-    ];
+const UserStandbyList : React.FC<UserStandbyListProps> = ({ gamestart, userArr }) => {
 
   return (
     <UserListContainer>
         {userArr?.map((item : any) => {
             return (
-                <UserCardContainer key={item.id}>
+                <UserCardContainer
+                    key={item.id}>
                     {(gamestart)
-                        ? <WaitStatusBox>
-                            Turn
-                        </WaitStatusBox>
+                        ? (item?.turn)
+                            ? <WaitStatusBox>
+                                Turn
+                            </WaitStatusBox>
+                            : <WaitStatusBox>
+                                
+                            </WaitStatusBox>
                         : <ReadyStatusBox>
                             Ready!
                         </ReadyStatusBox>}
-                    <UserNicknameBox>
-                        UserStandbyList
+                    <UserNicknameBox style={{border: (item?.turn) ? "1px dotted #E30000" : "1px dotted #222020"}}>
+                        {item?.name}
                     </UserNicknameBox>
-                    <CardBox>
+                    <CardBox style={{border: (item?.turn) ? "1px dotted #E30000" : "1px dotted #222020"}}>
                         <UserCardListWrapper>
-                            <UserCardList>
-                                <UserCard>
-                                    <CardCount>
-                                        5
-                                    </CardCount>
-                                </UserCard>
-                            </UserCardList>
-                            <UserCardList>
-                                <UserCard>
-                                    <CardCount>
-                                        5
-                                    </CardCount>
-                                </UserCard>
-                            </UserCardList>
-                            <UserCardList>
-                                <UserCard>
-                                    <CardCount>
-                                        5
-                                    </CardCount>
-                                </UserCard>
-                            </UserCardList>
-                            <UserCardList>
-                                <UserCard>
-                                    <CardCount>
-                                        5
-                                    </CardCount>
-                                </UserCard>
-                            </UserCardList>
-                            <UserCardList>
-                                <UserCard>
-                                    <CardCount>
-                                        5
-                                    </CardCount>
-                                </UserCard>
-                            </UserCardList>
+                            {(item?.count)
+                                ? item?.count.map((card : number | null) => {
+                                    return (
+                                        <UserCardList>
+                                            <UserCard>
+                                                <CardCount>
+                                                    {item?.count.length}
+                                                </CardCount>
+                                            </UserCard>
+                                        </UserCardList>
+                                    )
+                                })
+                                : null
+                            }
                         </UserCardListWrapper>
                     </CardBox>
                 </UserCardContainer>
@@ -108,6 +85,7 @@ export const ReadyStatusBox = styled.div`
     font-weight: 700;
     line-height: normal;
     user-select: none;
+    height: 18px;
 
     @media screen and (max-width: 550px) {
         font-size: 14px;
@@ -180,14 +158,24 @@ const UserCardList = styled.div`
 `;
 
 const UserCard = styled.div`
-    width: 55px;
-    height: 73px;
+    width: 66px;
+    height: 88px;
     background-color: #ffadbb;
     border-radius: 3px;
     border: 1px solid #222020;
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @media screen and (max-width: 1600px) {
+        width: 55px;
+        height: 73px;
+    }
+
+    @media screen and (max-width: 550px) {
+        width: 42px;
+        height: 56px;
+    }
 `;
 
 const CardCount = styled.div`
