@@ -7,13 +7,19 @@ interface UserStandbyListProps {
 
 const UserStandbyList : React.FC<UserStandbyListProps> = ({ gamestart }) => {
 
-    const userArr : any = [0, 1, 2, 3, 4];
+    const userArr : any = [
+        {id: 0, user: true, count: [0, 1, 2]},
+        {id: 1, user: true, count: [0, 1, 2, 3, 4, 5, 6]},
+        {id: 2, user: true, count: [0, 1, 2, 3, 4]},
+        {id: 3, user: true, count: [0]},
+        {id: 4, user: false, count: null},
+    ];
 
   return (
     <UserListContainer>
         {userArr?.map((item : any) => {
             return (
-                <UserCardContainer key={item}>
+                <UserCardContainer key={item.id}>
                     {(gamestart)
                         ? <WaitStatusBox>
                             Turn
@@ -25,7 +31,43 @@ const UserStandbyList : React.FC<UserStandbyListProps> = ({ gamestart }) => {
                         UserStandbyList
                     </UserNicknameBox>
                     <CardBox>
-                        
+                        <UserCardListWrapper>
+                            <UserCardList>
+                                <UserCard>
+                                    <CardCount>
+                                        5
+                                    </CardCount>
+                                </UserCard>
+                            </UserCardList>
+                            <UserCardList>
+                                <UserCard>
+                                    <CardCount>
+                                        5
+                                    </CardCount>
+                                </UserCard>
+                            </UserCardList>
+                            <UserCardList>
+                                <UserCard>
+                                    <CardCount>
+                                        5
+                                    </CardCount>
+                                </UserCard>
+                            </UserCardList>
+                            <UserCardList>
+                                <UserCard>
+                                    <CardCount>
+                                        5
+                                    </CardCount>
+                                </UserCard>
+                            </UserCardList>
+                            <UserCardList>
+                                <UserCard>
+                                    <CardCount>
+                                        5
+                                    </CardCount>
+                                </UserCard>
+                            </UserCardList>
+                        </UserCardListWrapper>
                     </CardBox>
                 </UserCardContainer>
             )
@@ -110,6 +152,48 @@ const CardBox = styled.div`
     @media screen and (max-width: 550px) {
         height: 66px;
     }
+`;
+
+const UserCardListWrapper = styled.div`
+    width: 70%;
+    height: 80px;
+    position: relative;
+    transition: all 0.3s;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+
+    /* @media screen and (max-width: 1600px) {
+        width: 55px;
+        height: 73px;
+    }
+
+    @media screen and (max-width: 550px) {
+        width: 42px;
+        height: 56px;
+    } */
+`;
+
+const UserCardList = styled.div`
+    max-width: 3px;
+`;
+
+const UserCard = styled.div`
+    width: 55px;
+    height: 73px;
+    background-color: #ffadbb;
+    border-radius: 3px;
+    border: 1px solid #222020;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`;
+
+const CardCount = styled.div`
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 100%;
 `;
 
 export default UserStandbyList;
