@@ -15,8 +15,7 @@ export const StBorderButton = styled.button<{ width : number, height : number }>
     box-shadow: #E3AEAE 0px 2px 2px 1px;
     border: none;
     user-select: none;
-    text-shadow: 0px 0px 3px #AF5B5B;
-    color: #FFFFFF;
+    color: #616161;
     cursor: pointer;
 
     &:hover {
@@ -27,7 +26,6 @@ export const StBorderButton = styled.button<{ width : number, height : number }>
     &:active {
         box-shadow: #E3AEAE90 0px 2px 2px 1px;
         color: #222020;
-        text-shadow: 0px 0px 3px #000000;
         font-size: 17px;
     }
 

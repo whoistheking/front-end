@@ -12,6 +12,16 @@ const GameRoomPage = () => {
   const dispatch = useDispatch();
   const isChoice = useSelector((state: RootState) => state.cardChoice.value);
 
+  const userArr : any = [
+    {id: 0, turn: true, user: true, name: "멍지니", count: [0, 1, 2]},
+    {id: 1, turn: false, user: true, name: "춘식이", count: [0, 1, 2, 3, 4, 5, 6]},
+    {id: 2, turn: false, user: true, name: "준짱잉", count: [0, 1, 2, 3, 4]},
+    {id: 3, turn: false, user: true, name: "주호민동생", count: [0]},
+    {id: 4, turn: false, user: false, name: null, count: null},
+  ];
+
+  const turnUser = userArr?.filter((item : any) => item?.turn === true);
+
   // const [getCard, setGetCard] = useState<{
   //   isget: boolean,
   //   cardvalue: number | undefined
@@ -23,12 +33,16 @@ const GameRoomPage = () => {
   return (
     <GameRoomLayout>
       <TopLineButton />
-      <UserStandbyList gamestart={true} />
+      <UserStandbyList gamestart={true} userArr={userArr}/>
       <SelectStatusTextWrapper>
         <SelectStatusText>
-          <UserContent>멍지니</UserContent>
+          <UserContent>
+            {turnUser[0]?.name}
+          </UserContent>
           님이
-          <UserContent>나</UserContent>
+          <UserContent>
+            나
+          </UserContent>
           의 카드를 고르는 중...
         </SelectStatusText>
       </SelectStatusTextWrapper>
