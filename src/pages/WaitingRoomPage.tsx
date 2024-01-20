@@ -4,6 +4,7 @@ import UserStandbyList from "../components/common/UserStandbyList";
 import { StBasicButton } from "../styles/BasicButton";
 import TopLineButton from "../components/common/TopLineButton";
 import LogoImage from "../assets/logo/mainlogo_image.webp";
+import IdBoxImage from "../assets/images/title_container.webp";
 
 const WaitingRoomPage = () => {
   const [button, setButton] = useState<boolean>(false);
@@ -27,6 +28,7 @@ const WaitingRoomPage = () => {
         <UserStandbyList gamestart={false} userArr={userArr}/>
       </div>
       <IdContainer>
+        <IdBackgroundImage src={IdBoxImage} alt=''/>
         <IdBoxContainer>
           <Id>
             ID : 00001<Copy></Copy>
@@ -68,34 +70,43 @@ const GameRoomLayout = styled.div`
 `;
 
 const IdContainer = styled.div`
-  width: 96%;
+  width: 260px;
+  height: 60px;
   margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 40px;
+  position: relative;
+`;
+
+const IdBackgroundImage = styled.img`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
 `;
 
 const IdBoxContainer = styled.div`
-  width: 212px;
-  height: 40px;
-  background-color: #4a2913;
+  width: 100%;
+  height: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
-  border-radius: 3px;
+  position: absolute;
+  top: 0;
+  left: 0;
 `;
 
 const Id = styled.div`
-  background-color: #c4ae8d;
-  width: 180px;
-  height: 33px;
+  width: 90%;
+  height: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-radius: 3px;
-  padding: 0px 10px 0px 10px;
   font-weight: 700;
+  text-indent: 20px;
 `;
 
 const Copy = styled.div`
