@@ -30,19 +30,19 @@ const UserStandbyList : React.FC<UserStandbyListProps> = ({ gamestart, userArr }
                     </UserNicknameBox>
                     <CardBox style={{border: (item?.turn) ? "1px dotted #E30000" : "1px dotted #222020"}}>
                         <UserCardListWrapper>
-                            {(item?.count)
-                                ? item?.count.map((card : number | null) => {
-                                    return (
-                                        <UserCardList>
-                                            <UserCard>
-                                                <CardCount>
-                                                    {item?.count.length}
-                                                </CardCount>
-                                            </UserCard>
-                                        </UserCardList>
-                                    )
-                                })
-                                : null
+                            {(gamestart)
+                                &&(item?.count)
+                                    && item?.count.map((card : number | null) => {
+                                        return (
+                                            <UserCardList>
+                                                <UserCard>
+                                                    <CardCount>
+                                                        {item?.count.length}
+                                                    </CardCount>
+                                                </UserCard>
+                                            </UserCardList>
+                                        )
+                                    })
                             }
                         </UserCardListWrapper>
                     </CardBox>
