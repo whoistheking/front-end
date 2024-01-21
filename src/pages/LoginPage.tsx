@@ -19,11 +19,17 @@ const LoginPage = () => {
 };
 
 const LogoAppear = keyframes`
-  from {
+  0% {
     opacity: 0;
     transform: scale(0.5);
   }
-  to {
+
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+
+  100% {
     opacity: 1;
     transform: scale(1);
   }
@@ -45,7 +51,7 @@ const LogoImage = styled.img`
   height: 300px;
   object-fit: contain;
   user-select: none;
-  animation: ${LogoAppear} 0.7s ease-out forwards;
+  animation: ${LogoAppear} 1s ease-in forwards;
 `;
 
 const ButtonWrapper = styled.div`
