@@ -16,7 +16,7 @@ const WaitingRoomPage = () => {
 
   const userArr : any = [ // 게임시작 페이지 기능 구현 작업 중 임의로 사용하는 값이야 신경쓰지말고 그대로 두고 있어 나중에 고칠게
     {id: 0, turn: true, user: true, name: "멍지니", count: [0, 1, 2]},
-    {id: 1, turn: false, user: true, name: "춘식이", count: [0, 1, 2, 3, 4, 5, 6]},
+    {id: 1, turn: false, user: true, name: "춘식이동생춘식이삼사오", count: [0, 1, 2, 3, 4, 5, 6]},
     {id: 2, turn: false, user: true, name: "준짱잉", count: [0, 1, 2, 3, 4]},
     {id: 3, turn: false, user: true, name: "주호민동생", count: [0]},
     {id: 4, turn: false, user: false, name: null, count: null},

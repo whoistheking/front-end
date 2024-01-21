@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import styled, { keyframes } from 'styled-components';
 import { cardClick } from '../../redux/module/CardChoiceSlice';
 import { RootState } from '../../redux/config/configureStore';
+import CardBack from '../../assets/images/card_back_image.webp';
 
 interface PokerCardProps {
     mycard: boolean;
@@ -35,9 +36,10 @@ const PokerCard : React.FC<PokerCardProps> = ({ mycard, item }) => {
                         <FrontCard style={{transform: (mycard) ? "" : "rotateY(180deg)"}}>
                             front
                         </FrontCard>
-                        <BackCard style={{transform: (mycard) ? "rotateY(180deg)" : ""}}>
-
-                        </BackCard>
+                        <BackCard
+                            src={CardBack}
+                            alt=''
+                            style={{transform: (mycard) ? "rotateY(180deg)" : ""}}/>
                     </SelectCardInnerBox>
                 </SelectCardContainer>
             )
@@ -48,9 +50,10 @@ const PokerCard : React.FC<PokerCardProps> = ({ mycard, item }) => {
                         <FrontCard style={{transform: (mycard) ? "" : "rotateY(180deg)"}}>
                             front
                         </FrontCard>
-                        <BackCard style={{transform: (mycard) ? "rotateY(180deg)" : ""}}>
-
-                        </BackCard>
+                        <BackCard
+                            src={CardBack}
+                            alt=''
+                            style={{transform: (mycard) ? "rotateY(180deg)" : ""}}/>
                     </CardInnerBox>
                 </CardContainer>
             )
@@ -148,14 +151,13 @@ const FrontCard = styled.div`
     background-color: #FFFFFF;
 `;
 
-const BackCard = styled.div`
+const BackCard = styled.img`
     width: 100%;
     height: 100%;
     position: absolute;
     top: 0;
     left: 0;
     backface-visibility: hidden;
-    background-color: #ffadbb;
 `;
 
 export default PokerCard;
