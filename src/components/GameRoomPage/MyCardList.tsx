@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
 import PokerCard from '../common/PokerCard';
+import { StBorderButton } from '../../styles/BorderButton';
 
 const MyCardList = () => {
 
@@ -16,6 +17,10 @@ const MyCardList = () => {
                     item={item}/>
             )
         })}
+        <ButtonWrapper>
+            <StBorderButton width={70} height={40}>카드셔플</StBorderButton>
+            <StBorderButton width={40} height={40}>Sound</StBorderButton>
+        </ButtonWrapper>
     </MyCardListContainer>
   )
 };
@@ -45,8 +50,19 @@ const MyCardListContainer = styled.div`
     }
 `;
 
-const CardWrapper = styled.div`
-    
+const ButtonWrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    position: absolute;
+    top: -50px;
+    right: 1.5%;
+`;
+
+const Button = styled(StBorderButton)`
+    font-size: 16px;
 `;
 
 export default MyCardList;

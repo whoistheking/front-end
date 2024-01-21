@@ -22,13 +22,16 @@ const UserStandbyList : React.FC<UserStandbyListProps> = ({ gamestart, userArr }
                             : <WaitStatusBox>
                                 
                             </WaitStatusBox>
-                        : <ReadyStatusBox>
-                            Ready!
-                        </ReadyStatusBox>}
-                    <UserNicknameBox style={{border: (item?.turn) ? "1px dotted #E30000" : "1px dotted #222020"}}>
+                        : (item?.user)
+                            ? <ReadyStatusBox>
+                                Ready!
+                            </ReadyStatusBox>
+                            : <ReadyStatusBox>
+                            </ReadyStatusBox>}
+                    <UserNicknameBox>
                         {item?.name}
                     </UserNicknameBox>
-                    <CardBox style={{border: (item?.turn) ? "1px dotted #E30000" : "1px dotted #222020"}}>
+                    <CardBox>
                         <UserCardListWrapper>
                             {(gamestart)
                                 &&(item?.count)
@@ -138,7 +141,7 @@ const UserCardListWrapper = styled.div`
     position: relative;
     transition: all 0.3s;
     display: flex;
-    flex-direction: row;
+    flex-direction: row-reverse;
     justify-content: start;
     align-items: center;
 
