@@ -14,7 +14,7 @@ const GameRoomPage = () => {
 
   const userArr : any = [
     {id: 0, turn: true, user: true, name: "멍지니", count: [0, 1, 2]},
-    {id: 1, turn: false, user: true, name: "춘식이", count: [0, 1, 2, 3, 4, 5, 6]},
+    {id: 1, turn: false, user: true, name: "춘식이동생춘식이삼사오", count: [0, 1, 2, 3, 4, 5, 6]},
     {id: 2, turn: false, user: true, name: "준짱잉", count: [0, 1, 2, 3, 4]},
     {id: 3, turn: false, user: true, name: "주호민동생", count: [0]},
     {id: 4, turn: false, user: false, name: null, count: null},

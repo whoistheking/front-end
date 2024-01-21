@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
+import CardBack from '../../assets/images/card_back_image.webp';
 
 interface UserStandbyListProps {
     gamestart: boolean;
@@ -28,9 +29,11 @@ const UserStandbyList : React.FC<UserStandbyListProps> = ({ gamestart, userArr }
                             </ReadyStatusBox>
                             : <ReadyStatusBox>
                             </ReadyStatusBox>}
-                    <UserNicknameBox>
-                        {item?.name}
-                    </UserNicknameBox>
+                    <UserNicknameWrapper>
+                        <UserNickname>
+                            {item?.name}
+                        </UserNickname>
+                    </UserNicknameWrapper>
                     <CardBox>
                         <UserCardListWrapper>
                             {(gamestart)
@@ -39,6 +42,7 @@ const UserStandbyList : React.FC<UserStandbyListProps> = ({ gamestart, userArr }
                                         return (
                                             <UserCardList>
                                                 <UserCard>
+                                                    <CardImage src={CardBack} alt=''/>
                                                     <CardCount>
                                                         {item?.count.length}
                                                     </CardCount>
@@ -100,11 +104,17 @@ const WaitStatusBox = styled(ReadyStatusBox)`
     color: #E30000;
 `;
 
-const UserNicknameBox = styled.div`
+const UserNicknameWrapper = styled.div`
     width: 100%;
     height: 25px;
     border: 1px dotted #222020;
     background-color: #D2C0A7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`;
+
+const UserNickname = styled.div`
     font-size: 11px;
     font-weight: 700;
     line-height: 100%;
@@ -136,7 +146,7 @@ const CardBox = styled.div`
 `;
 
 const UserCardListWrapper = styled.div`
-    width: 70%;
+    width: 68%;
     height: 80px;
     position: relative;
     transition: all 0.3s;
@@ -163,12 +173,14 @@ const UserCardList = styled.div`
 const UserCard = styled.div`
     width: 66px;
     height: 88px;
-    background-color: #ffadbb;
+    /* background-color: #ffadbb; */
     border-radius: 3px;
     border: 1px solid #222020;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    overflow: hidden;
 
     @media screen and (max-width: 1600px) {
         width: 55px;
@@ -181,10 +193,27 @@ const UserCard = styled.div`
     }
 `;
 
+const CardImage = styled.img`
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+`;
+
 const CardCount = styled.div`
     font-size: 30px;
     font-weight: 500;
     line-height: 100%;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `;
 
 export default UserStandbyList;

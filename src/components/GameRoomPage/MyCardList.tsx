@@ -18,8 +18,8 @@ const MyCardList = () => {
             )
         })}
         <ButtonWrapper>
-            <StBorderButton width={70} height={40}>카드셔플</StBorderButton>
-            <StBorderButton width={40} height={40}>Sound</StBorderButton>
+            <StBorderButton width={65} height={35}>카드셔플</StBorderButton>
+            <StBorderButton width={45} height={35}>Sound</StBorderButton>
         </ButtonWrapper>
     </MyCardListContainer>
   )
@@ -59,6 +59,10 @@ const ButtonWrapper = styled.div`
     position: absolute;
     top: -50px;
     right: 1.5%;
+
+    @media screen and (max-width: 550px) {
+        top: -40px;
+    }
 `;
 
 const Button = styled(StBorderButton)`
