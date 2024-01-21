@@ -15,7 +15,6 @@ export const StBasicButton = styled.button<{
   justify-content: center;
   align-items: center;
   display: flex;
-  transition: all 0.1s;
   font-family: "NanumYeBbeunMinGyeongCe";
   font-size: 28px;
   font-weight: 500;
