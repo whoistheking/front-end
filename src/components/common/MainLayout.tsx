@@ -89,6 +89,7 @@ const BackgroundImage = styled.img`
   top: 0;
   left: 0;
   z-index: 9;
+  user-select: none;
 `;
 
 export default MainLayout;

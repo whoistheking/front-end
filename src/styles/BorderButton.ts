@@ -21,6 +21,7 @@ export const StBorderButton = styled.button<{ width : number, height : number }>
     &:hover {
         color: #222020;
         text-shadow: none;
+        transform: scale(101%) translateY(-2%);
     }
 
     &:active {

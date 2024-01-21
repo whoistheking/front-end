@@ -5,6 +5,7 @@ import { StBasicButton } from "../styles/BasicButton";
 import TopLineButton from "../components/common/TopLineButton";
 import LogoImage from "../assets/logo/mainlogo_image.webp";
 import IdBoxImage from "../assets/images/title_container.webp";
+import CopyIcon from "../assets/icons/copy.webp"
 
 const WaitingRoomPage = () => {
   const [button, setButton] = useState<boolean>(false);
@@ -31,7 +32,7 @@ const WaitingRoomPage = () => {
         <IdBackgroundImage src={IdBoxImage} alt=''/>
         <IdBoxContainer>
           <Id>
-            ID : 00001<Copy></Copy>
+            방 ID : 00001<Copy src={CopyIcon} alt=""/>
           </Id>
         </IdBoxContainer>
       </IdContainer>
@@ -71,7 +72,7 @@ const GameRoomLayout = styled.div`
 
 const IdContainer = styled.div`
   width: 260px;
-  height: 60px;
+  height: 68px;
   margin: 0 auto;
   display: flex;
   justify-content: center;
@@ -86,6 +87,7 @@ const IdBackgroundImage = styled.img`
   position: absolute;
   top: 0;
   left: 0;
+  user-select: none;
 `;
 
 const IdBoxContainer = styled.div`
@@ -109,18 +111,19 @@ const Id = styled.div`
   text-indent: 20px;
 `;
 
-const Copy = styled.div`
-  background-color: #9b835f;
+const Copy = styled.img`
   width: 24px;
   height: 24px;
+  object-fit: contain;
   cursor: pointer;
 `;
 
 const LogoContainer = styled.img`
   width: 300px;
-  height: 220px;
+  height: 230px;
   object-fit: contain;
   margin: 40px 0px 120px 0px;
+  user-select: none;
 `;
 
 const ButtonContainer = styled.div`
