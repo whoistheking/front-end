@@ -7,57 +7,82 @@ interface UserStandbyListProps {
     userArr: any;
 };
 
-const UserStandbyList : React.FC<UserStandbyListProps> = ({ gamestart, userArr }) => {
+const UserStandbyList: React.FC<UserStandbyListProps> = ({ gamestart, userArr }) => {
 
-  return (
-    <UserListContainer>
-        {userArr?.map((item : any) => {
+    const gameStartChange = () => {
+        if (gamestart) {
             return (
-                <UserCardContainer
-                    key={item.id}>
-                    {(gamestart)
-                        ? (item?.turn)
-                            ? <WaitStatusBox>
-                                Turn
-                            </WaitStatusBox>
-                            : <WaitStatusBox>
-                                
-                            </WaitStatusBox>
-                        : (item?.user)
-                            ? <ReadyStatusBox>
-                                Ready!
-                            </ReadyStatusBox>
-                            : <ReadyStatusBox>
-                            </ReadyStatusBox>}
-                    <UserNicknameWrapper>
-                        <UserNickname>
-                            {item?.name}
-                        </UserNickname>
-                    </UserNicknameWrapper>
-                    <CardBox>
-                        <UserCardListWrapper>
-                            {(gamestart)
-                                &&(item?.count)
-                                    && item?.count.map((card : number | null) => {
-                                        return (
-                                            <UserCardList>
-                                                <UserCard>
-                                                    <CardImage src={CardBack} alt=''/>
-                                                    <CardCount>
-                                                        {item?.count.length}
-                                                    </CardCount>
-                                                </UserCard>
-                                            </UserCardList>
-                                        )
-                                    })
-                            }
-                        </UserCardListWrapper>
-                    </CardBox>
-                </UserCardContainer>
+                userArr?.map((item: any) => {
+                    return (
+                        <UserCardContainer
+                            key={item.id}>
+                            {(item?.turn)
+                                ? <WaitStatusBox>
+                                    Turn
+                                </WaitStatusBox>
+                                : <WaitStatusBox>
+
+                                </WaitStatusBox>}
+                            <UserNicknameWrapper>
+                                <UserNickname>
+                                    {item?.name}
+                                </UserNickname>
+                            </UserNicknameWrapper>
+                            <CardBox>
+                                <UserCardListWrapper>
+                                    {(item?.count)
+                                        && item?.count.map((card: number | null) => {
+                                            return (
+                                                <UserCardList>
+                                                    <UserCard>
+                                                        <CardImage src={CardBack} alt='' />
+                                                        <CardCount>
+                                                            {item?.count.length}
+                                                        </CardCount>
+                                                    </UserCard>
+                                                </UserCardList>
+                                            )
+                                        })}
+                                </UserCardListWrapper>
+                            </CardBox>
+                        </UserCardContainer>
+                    )
+                })
             )
-        })}
-    </UserListContainer>
-  )
+        } else {
+            return (
+                userArr?.map((item: any) => {
+                    return (
+                        <UserCardContainer
+                            key={item.id}>
+                            {(item?.user)
+                                ? <ReadyStatusBox>
+                                    Ready!
+                                </ReadyStatusBox>
+                                : <ReadyStatusBox>
+                                </ReadyStatusBox>}
+                            <UserNicknameWrapper>
+                                <UserNickname>
+                                    {item?.name}
+                                </UserNickname>
+                            </UserNicknameWrapper>
+                            <CardBox>
+                                <UserCardListWrapper>
+
+                                </UserCardListWrapper>
+                            </CardBox>
+                        </UserCardContainer>
+                    )
+                })
+            )
+        };
+    };
+
+    return (
+        <UserListContainer>
+            {gameStartChange()}
+        </UserListContainer>
+    )
 };
 
 const UserListContainer = styled.div`
@@ -200,6 +225,7 @@ const CardImage = styled.img`
     position: absolute;
     top: 0;
     left: 0;
+    user-select: none;
 `;
 
 const CardCount = styled.div`
@@ -214,6 +240,7 @@ const CardCount = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    user-select: none;
 `;
 
 export default UserStandbyList;

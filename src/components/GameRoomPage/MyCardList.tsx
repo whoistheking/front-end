@@ -19,7 +19,7 @@ const MyCardList = () => {
         })}
         <ButtonWrapper>
             <StBorderButton width={65} height={35}>카드셔플</StBorderButton>
-            <StBorderButton width={45} height={35}>Sound</StBorderButton>
+            <StBorderButton width={45} height={35}>음성</StBorderButton>
         </ButtonWrapper>
     </MyCardListContainer>
   )

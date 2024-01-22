@@ -149,6 +149,7 @@ const FrontCard = styled.div`
     left: 0;
     backface-visibility: hidden;
     background-color: #FFFFFF;
+    user-select: none;
 `;
 
 const BackCard = styled.img`
@@ -158,6 +159,7 @@ const BackCard = styled.img`
     top: 0;
     left: 0;
     backface-visibility: hidden;
+    user-select: none;
 `;
 
 export default PokerCard;
