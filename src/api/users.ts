@@ -1,3 +1,3 @@
-// import instance from ".";
+import instance from ".";
 
 export {};
