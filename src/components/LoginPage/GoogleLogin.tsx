@@ -1,19 +1,26 @@
-import React from 'react'
-import styled from 'styled-components';
-import Google from '../../assets/icons/google.webp';
-import { IconWrapper, ButtonIcons, ButtonText } from './KakaoLogin';
+import React from "react";
+import styled from "styled-components";
+import Google from "../../assets/icons/google.webp";
+import { IconWrapper, ButtonIcons, ButtonText } from "./KakaoLogin";
 
 const GoogleLogin = () => {
+  const googleClientId = process.env.REACT_APP_GOOGLE_KEY;
+
+  const googleRedirectUrl = "http://localhost:3000/googleLogin";
+
+  const googleAuthUrl = `https://accounts.google.com/o/oauth2/v2/auth?response_type=code&client_id=${googleClientId}&scope=openid%20profile%20email&redirect_uri=${googleRedirectUrl}`;
+
+  const loginOnclick = () => {
+    window.location.href = googleAuthUrl;
+  };
   return (
     <GoogleLoginButton>
       <IconWrapper>
-        <ButtonIcons src={Google} alt='google' />
+        <ButtonIcons src={Google} alt="google" />
       </IconWrapper>
-      <ButtonText>
-        구글 로그인
-      </ButtonText>
+      <ButtonText onClick={loginOnclick}>구글 로그인</ButtonText>
     </GoogleLoginButton>
-  )
+  );
 };
 
 const GoogleLoginButton = styled.button`
@@ -24,7 +31,7 @@ const GoogleLoginButton = styled.button`
   justify-content: center;
   align-items: center;
   gap: 30px;
-  background: linear-gradient(to bottom, #FFFFFF, #e9e9e9);
+  background: linear-gradient(to bottom, #ffffff, #e9e9e9);
   border: none;
   cursor: pointer;
 `;
