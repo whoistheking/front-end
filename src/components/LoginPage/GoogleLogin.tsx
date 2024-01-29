@@ -6,13 +6,14 @@ import { IconWrapper, ButtonIcons, ButtonText } from "./KakaoLogin";
 const GoogleLogin = () => {
   const googleClientId = process.env.REACT_APP_GOOGLE_KEY;
 
-  const googleRedirectUrl = "http://localhost:3000/googleLogin";
+  const googleRedirectUrl = "http://localhost:3000/login/social";
 
   const googleAuthUrl = `https://accounts.google.com/o/oauth2/v2/auth?response_type=code&client_id=${googleClientId}&scope=openid%20profile%20email&redirect_uri=${googleRedirectUrl}`;
 
   const loginOnclick = () => {
     window.location.href = googleAuthUrl;
   };
+  
   return (
     <GoogleLoginButton>
       <IconWrapper>

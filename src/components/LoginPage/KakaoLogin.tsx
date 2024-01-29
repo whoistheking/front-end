@@ -5,7 +5,7 @@ import Kakao from '../../assets/icons/kakao.webp';
 const KakaoLogin = () => {
 
   const REST_API_KEY = ""; // 발급받은 키
-  const REDIRECT_URI = "http://localhost:3000/login"; // Callback URL
+  const REDIRECT_URI = "http://localhost:3000/login/social"; // Callback URL
   const link = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`
 
   const KakaoLoginButtonHandler = () => {
