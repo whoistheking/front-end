@@ -22,6 +22,15 @@ const WaitingRoomPage = () => {
     {id: 4, turn: false, user: false, name: null, count: null},
   ];
 
+  const onClickCopyHandler = async (id : string) => {
+    try {
+      await navigator.clipboard.writeText(id);
+      alert("클립보드에 복사되었습니다.");
+    } catch (error) {
+      alert("복사에 실패하였습니다.");
+    };
+  };
+
   return (
     <GameRoomLayout>
       <TopLineButton />
@@ -32,7 +41,7 @@ const WaitingRoomPage = () => {
         <IdBackgroundImage src={IdBoxImage} alt=''/>
         <IdBoxContainer>
           <Id>
-            방 ID : 00001<Copy src={CopyIcon} alt=""/>
+            방 ID : 00001<Copy src={CopyIcon} alt="" onClick={() => onClickCopyHandler("00001")}/>
           </Id>
         </IdBoxContainer>
       </IdContainer>
