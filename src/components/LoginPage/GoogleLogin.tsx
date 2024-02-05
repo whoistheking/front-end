@@ -31,7 +31,7 @@ const GoogleLoginButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 30px;
+  gap: 40px;
   background: linear-gradient(to bottom, #ffffff, #e9e9e9);
   border: none;
   cursor: pointer;
