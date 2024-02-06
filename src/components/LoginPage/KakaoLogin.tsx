@@ -4,8 +4,9 @@ import Kakao from '../../assets/icons/kakao.webp';
 
 const KakaoLogin = () => {
 
-  const REST_API_KEY = ""; // 발급받은 키
-  const REDIRECT_URI = "http://localhost:3000/login/social"; // Callback URL
+  const REACT_APP_SERVER_URL = process.env.RECAT_APP_SERVER_URL;
+  const REST_API_KEY = process.env.REACT_APP_KAKAO_KEY; // 발급받은 키
+  const REDIRECT_URI = `${REACT_APP_SERVER_URL}/kakao/callback`; // Callback URL
   const link = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`
 
   const KakaoLoginButtonHandler = () => {
@@ -39,6 +40,13 @@ export const LoginButton = styled.button<{ backgroundcolor: string, color: strin
   color: ${(props) => props.color};
   border: none;
   cursor: pointer;
+
+  @media screen and (max-width: 570px) {
+    width: 240px;
+    height: 50px;
+    border-radius: 3px;
+    gap: 24px;
+  }
 `;
 
 export const IconWrapper = styled.div`
@@ -46,12 +54,21 @@ export const IconWrapper = styled.div`
   display: flex;
   justify-content: end;
   align-items: center;
+
+  @media screen and (max-width: 570px) {
+    min-width: 70px;
+  }
 `;
 
 export const ButtonIcons = styled.img`
   width: 24px;
   height: 24px;
   object-fit: contain;
+
+  @media screen and (max-width: 570px) {
+    width: 20px;
+    height: 20px;
+  }
 `;
 
 export const ButtonText = styled.div`
@@ -63,6 +80,10 @@ export const ButtonText = styled.div`
   font-size: 22px;
   font-weight: 800;
   line-height: normal;
+
+  @media screen and (max-width: 570px) {
+    font-size: 18px;
+  }
 `;
 
 export default KakaoLogin;
