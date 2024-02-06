@@ -24,9 +24,9 @@ const LogoAppear = keyframes`
     transform: scale(0.5);
   }
 
-  50% {
+  40% {
     opacity: 1;
-    transform: scale(1.2);
+    transform: scale(1.4);
   }
 
   100% {
@@ -51,7 +51,12 @@ const LogoImage = styled.img`
   height: 300px;
   object-fit: contain;
   user-select: none;
-  animation: ${LogoAppear} 1s ease-in forwards;
+  animation: ${LogoAppear} 0.8s forwards linear;
+
+  @media screen and (max-width: 570px) {
+    width: 250px;
+    height: 200px;
+  }
 `;
 
 const ButtonWrapper = styled.div`
