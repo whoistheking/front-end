@@ -1,21 +1,28 @@
 import React, { useEffect } from 'react'
 import styled from 'styled-components';
 import axios from "axios";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useQuery } from 'react-query';
+import { getLoginApi } from '../api/users';
 
 const Redirection = () => {
 
     const code = new URL(window.location.toString()).searchParams.get("code");
     const navigate = useNavigate();
+    const { social } = useParams();
 
     useEffect(() => {
-      const loginTimer = setTimeout(() => {
-        navigate("/main");
-      }, 2000);
-      
-      return () => {
-        clearTimeout(loginTimer);
-      }
+      const fetchData = async () => {
+        try {
+          const res = await getLoginApi(social, code);
+          console.log("로그인 데이터", res);
+        } catch (error) {
+          console.log("error", error);
+        };
+      };
+
+      fetchData();
+      navigate("/main");
     }, []);
 
   return (

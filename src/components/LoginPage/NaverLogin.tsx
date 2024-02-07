@@ -6,7 +6,7 @@ import { LoginButton, IconWrapper, ButtonIcons, ButtonText } from './KakaoLogin'
 const NaverLogin = () => {
 
   const NAVER_CLIENT_ID = process.env.REACT_APP_NAVER_KEY;
-  const REDIRECT_URI = "http://localhost:8080/naver/callback";
+  const REDIRECT_URI = "http://localhost:3000/naver/callback";
   const NAVER_AUTH_URL = `https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=${NAVER_CLIENT_ID}&redirect_uri=${REDIRECT_URI}`
 
   const NaverLoginButtonHandler = () => {
