@@ -31,7 +31,7 @@ instance.interceptors.response.use( // instance를 intercept해서 처리
             localStorage.removeItem("accessToken");
             localStorage.removeItem("refreshToken");
             localStorage.removeItem("location");
-            alert("로그인이 필요한 서비스입니다.");
+            alert("재로그인이 필요한 서비스입니다.");
             window.location.replace("/");
         }
         return Promise.reject(error);

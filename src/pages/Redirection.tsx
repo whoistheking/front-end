@@ -7,22 +7,24 @@ import { getLoginApi } from '../api/users';
 
 const Redirection = () => {
 
-    const code = new URL(window.location.toString()).searchParams.get("code");
     const navigate = useNavigate();
     const { social } = useParams();
+    const code = new URL(window.location.href).searchParams.get("code");
 
     useEffect(() => {
+      console.log(code);
+      console.log(social);
       const fetchData = async () => {
         try {
           const res = await getLoginApi(social, code);
           console.log("로그인 데이터", res);
+          navigate("/main");
         } catch (error) {
           console.log("error", error);
         };
       };
 
       fetchData();
-      navigate("/main");
     }, []);
 
   return (
