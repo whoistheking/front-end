@@ -14,17 +14,13 @@ const Redirection = () => {
     useEffect(() => {
       console.log(code);
       console.log(social);
-      const fetchData = async () => {
-        try {
-          const res = await getLoginApi(social, code);
-          console.log("로그인 데이터", res);
-          navigate("/main");
-        } catch (error) {
-          console.log("error", error);
-        };
+      try {
+        const res = getLoginApi(social, code);
+        console.log("로그인 데이터", res);
+        navigate("/main");
+      } catch (error) {
+        console.log("error", error);
       };
-
-      fetchData();
     }, []);
 
   return (

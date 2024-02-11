@@ -3,6 +3,7 @@ import instance from ".";
 // 로그인 api
 export const getLoginApi = async (social : string | undefined, code : string | null) => {
     const res = await instance.get(`/${social}/callback?code=${code}`);
+    return res;
 };
 
 // 로그아웃 api
