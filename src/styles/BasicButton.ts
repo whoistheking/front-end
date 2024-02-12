@@ -20,7 +20,6 @@ export const StBasicButton = styled.button<{
   font-weight: 500;
   line-height: normal;
   text-shadow: 0px 0px 3px #513710;
-  color: #FFFFFF;
   user-select: none;
   cursor: pointer;
 
