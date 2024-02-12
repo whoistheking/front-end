@@ -4,6 +4,7 @@ import { StBasicButton } from "../styles/BasicButton";
 import TopLineButton from "../components/common/TopLineButton";
 import ProfileBG from "../assets/images/profile_background_image.webp";
 import Profile from "../assets/icons/google.webp";
+import TypeCode from "../components/MainPage/TypeCode";
 
 const MainPage = () => {
   return (
@@ -34,12 +35,13 @@ const MainPage = () => {
                   EXP
                 </Text>
                 <Text>
-                  80 / 100
+                  80/100
                 </Text>
               </UserBottomLaneBox>
             </UserInfoWrapper>
           </ProfileWrapper>
         </ProfileContainer>
+        <TypeCode />
       <StBasicButton width="120px" height="40px" color="black">
         버튼
       </StBasicButton>
@@ -80,6 +82,7 @@ const ProfileBackground = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
+  user-select: none;
 `;
 
 const ProfileWrapper = styled.div`
@@ -104,6 +107,7 @@ const WantedTitle = styled.div`
   line-height: normal;
   color: #250808;
   letter-spacing: 5px;
+  user-select: none;
 `;
 
 const ProfileImageWrapper = styled.div`
@@ -111,7 +115,9 @@ const ProfileImageWrapper = styled.div`
   height: 110px;
   border: 2px solid #250808;
   border-radius: 8px;
+  background-color: #FCFCFC;
   overflow: hidden;
+  user-select: none;
 `;
 
 const ProfileImage = styled.img`

@@ -12,15 +12,16 @@ const Redirection = () => {
     const code = new URL(window.location.href).searchParams.get("code");
 
     useEffect(() => {
-      console.log(code);
-      console.log(social);
-      try {
-        const res = getLoginApi(social, code);
-        console.log("로그인 데이터", res);
-        navigate("/main");
-      } catch (error) {
-        console.log("error", error);
+      const fetchData = async () => {
+        try {
+          const res = await getLoginApi(social, code);
+          navigate("/main");
+        } catch (error) {
+          console.log("error", error);
+        };
       };
+
+      fetchData();      
     }, []);
 
   return (
