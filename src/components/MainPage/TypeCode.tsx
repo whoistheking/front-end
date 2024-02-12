@@ -66,6 +66,7 @@ const CodeInput = styled.input`
     outline: none;
     border: 2px solid #F4F4F4;
     padding: 0px 16px;
+    box-shadow: #5d5b5b80 2px 2px 4px 1px;
 
     &::placeholder {
         color: #6A6A6A;

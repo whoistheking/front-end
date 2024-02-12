@@ -216,7 +216,7 @@ const Text = styled.div`
 
 const RoomButtonWrapper = styled.div`
   width: 100%;
-  height: 140px;
+  height: 25%;
   display: flex;
   justify-content: center;
   align-items: start;
