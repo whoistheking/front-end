@@ -47,7 +47,6 @@ const TypeCode = () => {
 
 const TypeCodeContainer = styled.form`
     width: 100%;
-    height: 60px;
     display: flex;
     justify-content: center;
     align-items: start;

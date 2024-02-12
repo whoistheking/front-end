@@ -1,12 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { StBasicButton } from "../styles/BasicButton";
 import TopLineButton from "../components/common/TopLineButton";
 import ProfileBG from "../assets/images/profile_background_image.webp";
 import Profile from "../assets/icons/google.webp";
 import TypeCode from "../components/MainPage/TypeCode";
+import RoomModal from "../components/MainPage/RoomModal";
 
 const MainPage = () => {
+
+  const [roomModalOpen, setRoomModalOpen] = useState<{
+    isOpen: boolean,
+    isCreate: boolean
+  }>({
+    isOpen: false,
+    isCreate: false
+  });
+  const { isOpen, isCreate } = roomModalOpen;
+
   return (
     <MainPageLayout>
       <MainContainer>
@@ -42,10 +53,27 @@ const MainPage = () => {
           </ProfileWrapper>
         </ProfileContainer>
         <TypeCode />
-      <StBasicButton width="120px" height="40px" color="black">
-        버튼
-      </StBasicButton>
+        <RoomButtonWrapper>
+          <RoomButton
+            width="120px"
+            height="40px"
+            color="#FFFFFF"
+            onClick={() => setRoomModalOpen({...roomModalOpen, isOpen: !isOpen, isCreate: false})}>
+            게임 매칭
+          </RoomButton>
+          <RoomButton
+            width="120px"
+            height="40px"
+            color="#FFFFFF"
+            onClick={() => setRoomModalOpen({...roomModalOpen, isOpen: !isOpen, isCreate: true})}>
+            방 생성
+          </RoomButton>
+      </RoomButtonWrapper>
       </MainContainer>
+      {(isOpen)
+        && <RoomModal
+          roomModalOpen={roomModalOpen}
+          setRoomModalOpen={setRoomModalOpen}/>}
     </MainPageLayout>
   );
 };
@@ -184,6 +212,24 @@ const Text = styled.div`
   font-weight: 600;
   line-height: 100%;
   color: #250808;
+`;
+
+const RoomButtonWrapper = styled.div`
+  width: 100%;
+  height: 140px;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  gap: 60px;
+`;
+
+const RoomButton = styled(StBasicButton)`
+  font-size: 24px;
+
+  &:active {
+    box-shadow: #74532280 0px 2px 2px 1px;
+    font-size: 22px;
+  }
 `;
 
 export default MainPage;
