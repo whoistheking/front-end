@@ -6,9 +6,16 @@ import ProfileBG from "../assets/images/profile_background_image.webp";
 import Profile from "../assets/icons/google.webp";
 import TypeCode from "../components/MainPage/TypeCode";
 import RoomModal from "../components/MainPage/RoomModal";
+import { useQuery } from "react-query";
+import { getProfileApi } from "../api/users";
 
 const MainPage = () => {
 
+  const { isLoading, data, isError } = useQuery("getProfileQuery", () => getProfileApi(), {
+    refetchOnWindowFocus: false
+  });
+  console.log("프로필 데이터", data);
+  
   const [roomModalOpen, setRoomModalOpen] = useState<{
     isOpen: boolean,
     isCreate: boolean
@@ -23,13 +30,13 @@ const MainPage = () => {
       <MainContainer>
         <TopLineButton />
         <ProfileContainer>
-          <ProfileBackground src={ProfileBG} alt=""/>
+          <ProfileBackground src={ProfileBG} alt="" />
           <ProfileWrapper>
             <WantedTitle>
               WANTED
             </WantedTitle>
             <ProfileImageWrapper>
-              <ProfileImage src={Profile} alt=""/>
+              <ProfileImage src={Profile} alt="" />
             </ProfileImageWrapper>
             <UserInfoWrapper>
               <UserTopLaneBox>
@@ -39,7 +46,7 @@ const MainPage = () => {
                 </UserNickname>
               </UserTopLaneBox>
               <UserEXPPointBack>
-                <ExpPoint width={80}/>
+                <ExpPoint width={80} />
               </UserEXPPointBack>
               <UserBottomLaneBox>
                 <Text>
@@ -58,22 +65,22 @@ const MainPage = () => {
             width="120px"
             height="40px"
             color="#FFFFFF"
-            onClick={() => setRoomModalOpen({...roomModalOpen, isOpen: !isOpen, isCreate: false})}>
+            onClick={() => setRoomModalOpen({ ...roomModalOpen, isOpen: !isOpen, isCreate: false })}>
             게임 매칭
           </RoomButton>
           <RoomButton
             width="120px"
             height="40px"
             color="#FFFFFF"
-            onClick={() => setRoomModalOpen({...roomModalOpen, isOpen: !isOpen, isCreate: true})}>
+            onClick={() => setRoomModalOpen({ ...roomModalOpen, isOpen: !isOpen, isCreate: true })}>
             방 생성
           </RoomButton>
-      </RoomButtonWrapper>
+        </RoomButtonWrapper>
       </MainContainer>
       {(isOpen)
         && <RoomModal
           roomModalOpen={roomModalOpen}
-          setRoomModalOpen={setRoomModalOpen}/>}
+          setRoomModalOpen={setRoomModalOpen} />}
     </MainPageLayout>
   );
 };
@@ -191,7 +198,7 @@ const UserEXPPointBack = styled.div`
   align-items: center;
 `;
 
-const ExpPoint = styled.div<{ width : number }>`
+const ExpPoint = styled.div<{ width: number }>`
   width: ${(props) => props.width}%;
   height: 10px;
   border-radius: 10px;
@@ -216,7 +223,7 @@ const Text = styled.div`
 
 const RoomButtonWrapper = styled.div`
   width: 100%;
-  height: 25%;
+  height: 30%;
   display: flex;
   justify-content: center;
   align-items: start;
