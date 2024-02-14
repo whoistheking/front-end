@@ -17,7 +17,13 @@ const Redirection = () => {
     const fetchData = async () => {
       try {
         const res = await getLoginApi(social, code);
-        navigate("/main");
+        if (res.status === 200) {
+          console.log("리스폰스 값", res);
+          const responseData = res.data.result;
+          localStorage.setItem("name", responseData.name);
+          localStorage.setItem("token", responseData.token);
+          navigate("/main");
+        };
       } catch (error) {
         console.log("error", error);
       };
