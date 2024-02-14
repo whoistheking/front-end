@@ -21,17 +21,10 @@ const LoginPage = () => {
 const LogoAppear = keyframes`
   0% {
     opacity: 0;
-    transform: scale(0.5);
-  }
-
-  40% {
-    opacity: 1;
-    transform: scale(1.4);
   }
 
   100% {
     opacity: 1;
-    transform: scale(1);
   }
 `;
 
@@ -51,7 +44,7 @@ const LogoImage = styled.img`
   height: 300px;
   object-fit: contain;
   user-select: none;
-  animation: ${LogoAppear} 0.8s forwards linear;
+  animation: ${LogoAppear} 0.5s forwards linear;
 
   @media screen and (max-width: 570px) {
     width: 250px;
