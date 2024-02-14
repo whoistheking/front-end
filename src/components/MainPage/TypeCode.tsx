@@ -51,6 +51,7 @@ const TypeCodeContainer = styled.form`
     justify-content: center;
     align-items: start;
     gap: 16px;
+    padding: 40px 0px;
 `;
 
 const CodeInput = styled.input`

@@ -15,8 +15,10 @@ const Redirection = () => {
 
   useEffect(() => {
     const fetchData = async () => {
+      localStorage.removeItem("token");
       try {
         const res = await getLoginApi(social, code);
+        console.log("리스폰스 값", res);
         if (res.status === 200) {
           console.log("리스폰스 값", res);
           const responseData = res.data.result;
