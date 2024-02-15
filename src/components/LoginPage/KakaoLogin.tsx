@@ -11,14 +11,6 @@ const KakaoLogin = () => {
     window.location.href = link; // 카카오 로그인 페이지 링크로 이동
   };
 
-  // useEffect(() => {
-  //   const code = new URL(window.location.href).searchParams.get("code");
-  //   if (code) {
-  //     // 여기서 code를 사용하여 카카오 로그인 처리를 수행할 수 있음
-  //     console.log("Received authorization code:", code);
-  //   }
-  // }, []);
-
   return (
     <LoginButton
       color="#222020"
