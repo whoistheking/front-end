@@ -6,18 +6,18 @@ import { IconWrapper, ButtonIcons, ButtonText } from "./KakaoLogin";
 const GoogleLogin = () => {
   const googleClientId = process.env.REACT_APP_GOOGLE_KEY;
   const googleRedirectUrl = "http://localhost:3000/google/callback";
-  const googleAuthUrl = `https://accounts.google.com/o/oauth2/v2/auth?response_type=code&client_id=${googleClientId}&scope=openid%20profile%20email&redirect_uri=${googleRedirectUrl}`;
+  const googleAuthUrl = `https://accounts.google.com/o/oauth2/v2/auth?response_type=code&client_id=${googleClientId}&scope=https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile&redirect_uri=${googleRedirectUrl}`;
 
   const loginOnclick = () => {
     window.location.href = googleAuthUrl;
   };
   
   return (
-    <GoogleLoginButton>
+    <GoogleLoginButton onClick={loginOnclick}>
       <IconWrapper>
         <ButtonIcons src={Google} alt="google" />
       </IconWrapper>
-      <ButtonText onClick={loginOnclick}>구글 로그인</ButtonText>
+      <ButtonText>구글 로그인</ButtonText>
     </GoogleLoginButton>
   );
 };
