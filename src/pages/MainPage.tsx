@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { StBasicButton } from "../styles/BasicButton";
 import TopLineButton from "../components/common/TopLineButton";
@@ -8,6 +8,7 @@ import TypeCode from "../components/MainPage/TypeCode";
 import RoomModal from "../components/MainPage/RoomModal";
 import { useQuery } from "react-query";
 import { getProfileApi } from "../api/users";
+import UserInfo from "../components/MainPage/UserInfo";
 
 const MainPage = () => {
 
@@ -15,6 +16,8 @@ const MainPage = () => {
     refetchOnWindowFocus: false
   });
   console.log("프로필 데이터", data);
+
+  
   
   const [roomModalOpen, setRoomModalOpen] = useState<{
     isOpen: boolean,
@@ -38,25 +41,7 @@ const MainPage = () => {
             <ProfileImageWrapper>
               <ProfileImage src={Profile} alt="" />
             </ProfileImageWrapper>
-            <UserInfoWrapper>
-              <UserTopLaneBox>
-                LV.10
-                <UserNickname>
-                  멍지니
-                </UserNickname>
-              </UserTopLaneBox>
-              <UserEXPPointBack>
-                <ExpPoint width={80} />
-              </UserEXPPointBack>
-              <UserBottomLaneBox>
-                <Text>
-                  EXP
-                </Text>
-                <Text>
-                  80/100
-                </Text>
-              </UserBottomLaneBox>
-            </UserInfoWrapper>
+            <UserInfo />
           </ProfileWrapper>
         </ProfileContainer>
         <TypeCode />
@@ -159,66 +144,6 @@ const ProfileImage = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
-`;
-
-const UserInfoWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  width: 240px;
-`;
-
-const UserTopLaneBox = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: end;
-  font-family: "Pretendard";
-  font-size: 16px;
-  font-weight: 700;
-  line-height: normal;
-`;
-
-const UserNickname = styled.div`
-  font-size: 20px;
-  font-weight: 800;
-  line-height: normal;
-`;
-
-const UserEXPPointBack = styled.div`
-  width: 100%;
-  height: 8px;
-  border-radius: 10px;
-  border: 4px solid #D08239;
-  background-color: #D08239;
-  display: flex;
-  justify-content: start;
-  align-items: center;
-`;
-
-const ExpPoint = styled.div<{ width: number }>`
-  width: ${(props) => props.width}%;
-  height: 10px;
-  border-radius: 10px;
-  background-color: #250808;
-  box-shadow: #b96e6ec8 0px 0px 4px 2px;
-`;
-
-const UserBottomLaneBox = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;
-
-const Text = styled.div`
-  font-family: "Pretendard";
-  font-size: 12px;
-  font-weight: 600;
-  line-height: 100%;
-  color: #250808;
 `;
 
 const RoomButtonWrapper = styled.div`
