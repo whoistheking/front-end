@@ -4,6 +4,7 @@ import axios from "axios";
 import { useNavigate, useParams } from 'react-router-dom';
 import { useQuery } from 'react-query';
 import { getLoginApi } from '../api/users';
+import { toast } from 'react-toastify';
 
 const Redirection = () => {
 
@@ -28,6 +29,12 @@ const Redirection = () => {
         };
       } catch (error) {
         console.log("error", error);
+        toast.error("로그인에 실패하였습니다.", {
+          position: "bottom-center",
+          autoClose: 1500,
+          hideProgressBar: true,
+        });
+        navigate("/");
       };
     };
 
