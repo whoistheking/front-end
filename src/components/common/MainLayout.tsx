@@ -3,10 +3,12 @@ import { Outlet } from 'react-router-dom';
 import styled from 'styled-components';
 import Banner from './Banner';
 import Background from '../../assets/images/background_image.webp';
+import { ToastContainer } from "react-toastify";
 
 const MainLayout = () => {
   return (
     <MainLayoutContainer>
+      <ToastContainer />
       <MainContentWrapper>
         <Banner />
         <PageLayout>

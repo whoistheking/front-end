@@ -8,7 +8,6 @@ import MainLayout from "./components/common/MainLayout";
 import GameRoomPage from "./pages/GameRoomPage";
 import WaitingRoomPage from "./pages/WaitingRoomPage";
 import Redirection from "./pages/Redirection";
-import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
@@ -24,7 +23,6 @@ function App() {
           </Route>
         </Routes> 
       </BrowserRouter>
-      <ToastContainer />
     </div>
   );
 }
