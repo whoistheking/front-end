@@ -11,3 +11,9 @@ export const roomCodeApi = async (roomId: string) => {
   const res = await instance.get(`/room/join/${roomId}`);
   return res;
 };
+
+// 사설 방 생성
+export const roomCreateApi = async () => {
+  const res = await instance.post("/room/create");
+  return res;
+};
