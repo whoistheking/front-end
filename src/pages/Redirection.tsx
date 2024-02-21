@@ -30,9 +30,12 @@ const Redirection = () => {
       } catch (error) {
         console.log("error", error);
         toast.error("로그인에 실패하였습니다.", {
-          position: "bottom-center",
+          position: "top-center",
           autoClose: 1500,
-          hideProgressBar: true,
+          hideProgressBar: false,
+          closeButton: true,
+          theme: "colored",
+          className: "custom-toast"
         });
         navigate("/");
       };
