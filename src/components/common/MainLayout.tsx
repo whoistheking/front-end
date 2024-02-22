@@ -4,11 +4,15 @@ import styled from 'styled-components';
 import Banner from './Banner';
 import Background from '../../assets/images/background_image.webp';
 import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const MainLayout = () => {
   return (
     <MainLayoutContainer>
-      <ToastContainer />
+      <ToastContainer
+          position="top-center"
+          autoClose={3000}
+          closeButton/>
       <MainContentWrapper>
         <Banner />
         <PageLayout>
