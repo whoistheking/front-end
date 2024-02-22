@@ -44,6 +44,11 @@ const UserInfoWrapper = styled.div`
   align-items: center;
   gap: 10px;
   width: 240px;
+
+  @media screen and (max-width: 550px) {
+    gap: 3px;
+    width: 190px;
+  }
 `;
 
 const UserTopLaneBox = styled.div`
@@ -55,12 +60,20 @@ const UserTopLaneBox = styled.div`
   font-size: 16px;
   font-weight: 700;
   line-height: normal;
+
+  @media screen and (max-width: 550px) {
+    font-size: 12px;
+  }
 `;
 
 const UserNickname = styled.div`
   font-size: 20px;
   font-weight: 800;
   line-height: normal;
+
+  @media screen and (max-width: 550px) {
+    font-size: 16px;
+  }
 `;
 
 const UserEXPPointBack = styled.div`
@@ -72,6 +85,10 @@ const UserEXPPointBack = styled.div`
   display: flex;
   justify-content: start;
   align-items: center;
+
+  @media screen and (max-width: 550px) {
+    height: 4px;
+  }
 `;
 
 const ExpPoint = styled.div<{ width: number }>`
@@ -81,6 +98,10 @@ const ExpPoint = styled.div<{ width: number }>`
   background-color: #250808;
   box-shadow: #b96e6ec8 0px 0px 4px 2px;
   transition: all 0.01;
+
+  @media screen and (max-width: 550px) {
+    height: 8px;
+  }
 `;
 
 const UserBottomLaneBox = styled.div`
@@ -96,6 +117,10 @@ const Text = styled.div`
   font-weight: 600;
   line-height: 100%;
   color: #250808;
+
+  @media screen and (max-width: 550px) {
+    font-size: 10px;
+  }
 `;
 
 export default UserInfo;

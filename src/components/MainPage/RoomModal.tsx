@@ -1,6 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import { StBasicButton } from "../../styles/BasicButton";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../redux/config/configureStore";
+import { connectedSocket } from "../../redux/module/Connect";
 
 interface RoomModalProps {
   roomModalOpen: {
@@ -21,6 +24,12 @@ const RoomModal: React.FC<RoomModalProps> = ({
 }) => {
   const { isCreate } = roomModalOpen;
 
+  const webSocketUrl = `ws://${process.env.REACT_APP_SERVER_URL}`;
+
+  const dispatch = useDispatch();
+  const connected = useSelector((state : RootState) => state.connect);
+  console.log("연결", connected);
+
   const onClickModalCloseHandler = () => {
     setRoomModalOpen({ ...roomModalOpen, isOpen: false });
   };
@@ -39,7 +48,11 @@ const RoomModal: React.FC<RoomModalProps> = ({
             </Content>
           </ContentWrapper>
           <ButtonWrapper>
-            <ModalButton width="120px" height="40px" color="#FFFFFF">
+            <ModalButton
+              width="120px"
+              height="40px"
+              color="#FFFFFF"
+              onClick={() => dispatch(connectedSocket(!connected))}>
               생성하기
             </ModalButton>
             <ModalButton
