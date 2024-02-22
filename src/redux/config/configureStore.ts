@@ -1,8 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 import cardChoice from '../module/CardChoiceSlice';
+import connect from '../module/Connect';
 
 const store = configureStore({
-  reducer: { cardChoice },
+  reducer: {
+    cardChoice,
+    connect
+  },
 });
 
 export type RootState = ReturnType<typeof store.getState>

@@ -118,6 +118,10 @@ const ProfileWrapper = styled.div`
   gap: 16px;
   font-family: "Pretendard";
   color: #250808;
+
+  @media screen and (max-width: 550px) {
+    gap: 5px;
+  }
 `;
 
 const WantedTitle = styled.div`
@@ -128,6 +132,10 @@ const WantedTitle = styled.div`
   color: #250808;
   letter-spacing: 5px;
   user-select: none;
+
+  @media screen and (max-width: 550px) {
+    font-size: 36px;
+  }
 `;
 
 const ProfileImageWrapper = styled.div`
@@ -138,6 +146,11 @@ const ProfileImageWrapper = styled.div`
   background-color: #FCFCFC;
   overflow: hidden;
   user-select: none;
+
+  @media screen and (max-width: 550px) {
+    width: 90px;
+    height: 80px;
+  }
 `;
 
 const ProfileImage = styled.img`
@@ -153,6 +166,11 @@ const RoomButtonWrapper = styled.div`
   justify-content: center;
   align-items: start;
   gap: 60px;
+
+  @media screen and (max-width: 550px) {
+    gap: 30px;
+    height: 28%;
+  }
 `;
 
 const RoomButton = styled(StBasicButton)`
