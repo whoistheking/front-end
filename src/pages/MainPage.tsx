@@ -12,10 +12,10 @@ import UserInfo from "../components/MainPage/UserInfo";
 
 const MainPage = () => {
 
-  const { isLoading, data, isError } = useQuery("getProfileQuery", () => getProfileApi(), {
-    refetchOnWindowFocus: false
-  });
-  console.log("프로필 데이터", data);
+  // const { isLoading, data, isError } = useQuery("getProfileQuery", () => getProfileApi(), {
+  //   refetchOnWindowFocus: false
+  // });
+  // console.log("프로필 데이터", data);
 
   
   

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import UserStandbyList from "../components/common/UserStandbyList";
 import { StBasicButton } from "../styles/BasicButton";
@@ -6,8 +6,15 @@ import TopLineButton from "../components/common/TopLineButton";
 import LogoImage from "../assets/logo/mainlogo_image.webp";
 import IdBoxImage from "../assets/images/title_container.webp";
 import CopyIcon from "../assets/icons/copy.webp";
+import { Stomp } from "@stomp/stompjs";
 
 const WaitingRoomPage = () => {
+
+  const token = localStorage.getItem("token");
+  const [stompClient, setStompClient] = useState<any>(null);
+  const [messages, setMessages] = useState<string[]>([]);
+  const webSocketUrl = `ws://${process.env.REACT_APP_SOCKET_URL}/ws/message`;
+
   const [button, setButton] = useState<boolean>(false);
 
   const ButtonOnclick = () => {
@@ -37,6 +44,45 @@ const WaitingRoomPage = () => {
       alert("복사에 실패하였습니다.");
     }
   };
+
+  useEffect(() => {
+    // STOMP 클라이언트 설정
+    const socket = new WebSocket(webSocketUrl);
+    const client = Stomp.over(socket);
+    console.log(client);
+
+    // 연결 헤더에 엑세스 토큰 추가
+    const headers = {
+      token: token,
+    }
+
+    setStompClient(client);
+
+    // STOMP 연결
+    client.connect(
+      headers,
+      () => {
+        // 구독 설정
+        const subscription = client.subscribe("/room/create", (message) => {
+          const newMessage = JSON.parse(message.body);
+          console.log(message);
+
+          setMessages((prevMessages) => [...prevMessages, newMessage]);
+        });
+
+        // 컴포넌트 언마운트 시 연결 해제
+        return () => {
+          if (stompClient) {
+            subscription.unsubscribe();
+            stompClient.disconnet(() => {});
+          }
+        }
+      },
+      (error: any) => {
+        console.log("STOMP 연결 실패", error);
+      }
+    );
+  }, [token]);
 
   return (
     <GameRoomLayout>
