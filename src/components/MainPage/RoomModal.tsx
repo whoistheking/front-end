@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import styled from "styled-components";
 import { StBasicButton } from "../../styles/BasicButton";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/config/configureStore";
 import { connectedSocket } from "../../redux/module/Connect";
+import { useNavigate } from "react-router-dom";
 
 interface RoomModalProps {
   roomModalOpen: {
@@ -22,13 +23,9 @@ const RoomModal: React.FC<RoomModalProps> = ({
   roomModalOpen,
   setRoomModalOpen,
 }) => {
+
+  const navigate = useNavigate();
   const { isCreate } = roomModalOpen;
-
-  const webSocketUrl = `ws://${process.env.REACT_APP_SERVER_URL}`;
-
-  const dispatch = useDispatch();
-  const connected = useSelector((state : RootState) => state.connect);
-  console.log("연결", connected);
 
   const onClickModalCloseHandler = () => {
     setRoomModalOpen({ ...roomModalOpen, isOpen: false });
@@ -52,7 +49,7 @@ const RoomModal: React.FC<RoomModalProps> = ({
               width="120px"
               height="40px"
               color="#FFFFFF"
-              onClick={() => dispatch(connectedSocket(!connected))}>
+              onClick={() => navigate("/gameroom/waiting")}>
               생성하기
             </ModalButton>
             <ModalButton
