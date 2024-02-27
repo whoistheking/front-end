@@ -13,7 +13,7 @@ const WaitingRoomPage = () => {
   const token = localStorage.getItem("token");
   const [stompClient, setStompClient] = useState<any>(null);
   const [messages, setMessages] = useState<string[]>([]);
-  const webSocketUrl = `wss://${process.env.REACT_APP_SOCKET_URL}/production`;
+  const webSocketUrl = `ws://${process.env.REACT_APP_SOCKET_URL}/api/v1/room`;
 
   const [button, setButton] = useState<boolean>(false);
 
