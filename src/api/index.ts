@@ -21,10 +21,10 @@ instance.interceptors.response.use( // instance를 intercept해서 처리
             alert("로그인이 필요한 서비스입니다.");
             window.location.replace("/");
         } else if (status === 401) {
-            localStorage.removeItem("name");
-            localStorage.removeItem("token");
-            alert("재로그인이 필요한 서비스입니다.");
-            window.location.replace("/");
+            // localStorage.removeItem("name");
+            // localStorage.removeItem("token");
+            // alert("재로그인이 필요한 서비스입니다.");
+            // window.location.replace("/");
         }
         return Promise.reject(error);
     }

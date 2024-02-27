@@ -16,8 +16,6 @@ const MainPage = () => {
   //   refetchOnWindowFocus: false
   // });
   // console.log("프로필 데이터", data);
-
-  
   
   const [roomModalOpen, setRoomModalOpen] = useState<{
     isOpen: boolean,
