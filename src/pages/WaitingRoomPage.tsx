@@ -13,7 +13,7 @@ const WaitingRoomPage = () => {
   const token = localStorage.getItem("token");
   const [stompClient, setStompClient] = useState<any>(null);
   const [messages, setMessages] = useState<string[]>([]);
-  const webSocketUrl = `ws://${process.env.REACT_APP_SOCKET_URL}/ws/message`;
+  const webSocketUrl = `wss://${process.env.REACT_APP_SOCKET_URL}/production`;
 
   const [button, setButton] = useState<boolean>(false);
 
@@ -49,7 +49,7 @@ const WaitingRoomPage = () => {
     // STOMP 클라이언트 설정
     const socket = new WebSocket(webSocketUrl);
     const client = Stomp.over(socket);
-    console.log(client);
+    console.log("클라이언트 설정", client);
 
     // 연결 헤더에 엑세스 토큰 추가
     const headers = {
@@ -64,10 +64,11 @@ const WaitingRoomPage = () => {
       () => {
         // 구독 설정
         const subscription = client.subscribe("/room/create", (message) => {
-          const newMessage = JSON.parse(message.body);
-          console.log(message);
-
-          setMessages((prevMessages) => [...prevMessages, newMessage]);
+          if (message.body) {
+            const newMessage = JSON.parse(message.body);
+            console.log("소켓 메세지", messages);
+            setMessages((prevMessages) => [...prevMessages, newMessage]);
+          }
         });
 
         // 컴포넌트 언마운트 시 연결 해제

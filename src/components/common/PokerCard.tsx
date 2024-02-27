@@ -106,7 +106,7 @@ const CardContainer = styled.div`
 
     &:hover {
         transition: all 0.3s ease-out;
-        transform: translateY(-10%) scale(105%) rotate(10deg);
+        transform: translateY(-10%) scale(105%);
     }
 
     @media screen and (max-width: 1600px) {
