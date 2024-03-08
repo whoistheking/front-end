@@ -8,9 +8,10 @@ import CardBack from '../../assets/images/card_back_image.webp';
 interface PokerCardProps {
     mycard: boolean;
     item: any;
+    index: number;
 };
 
-const PokerCard : React.FC<PokerCardProps> = ({ mycard, item }) => {
+const PokerCard : React.FC<PokerCardProps> = ({ mycard, item, index }) => {
 
     const dispatch = useDispatch();
     const selectCard = useSelector((state : RootState) => state.cardChoice.value);
@@ -43,17 +44,33 @@ const PokerCard : React.FC<PokerCardProps> = ({ mycard, item }) => {
                     </SelectCardInnerBox>
                 </SelectCardContainer>
             )
-        } else {
+        } else if (mycard) {
             return (
-                <CardContainer onClick={onClickCardChoiceHandler}>
+                <MyCardContainer
+                    delay={index}
+                    onClick={onClickCardChoiceHandler}>
                     <CardInnerBox>
-                        <FrontCard style={{transform: (mycard) ? "" : "rotateY(180deg)"}}>
+                        <FrontCard style={{transform: ""}}>
                             front
                         </FrontCard>
                         <BackCard
                             src={CardBack}
                             alt=''
-                            style={{transform: (mycard) ? "rotateY(180deg)" : ""}}/>
+                            style={{transform: "rotateY(180deg)"}}/>
+                    </CardInnerBox>
+                </MyCardContainer>
+            )
+        } else {
+            return (
+                <CardContainer onClick={onClickCardChoiceHandler}>
+                    <CardInnerBox>
+                        <FrontCard style={{transform: "rotateY(180deg)"}}>
+                            front
+                        </FrontCard>
+                        <BackCard
+                            src={CardBack}
+                            alt=''
+                            style={{transform: ""}}/>
                     </CardInnerBox>
                 </CardContainer>
             )
@@ -74,6 +91,17 @@ const CardViewAnimation = keyframes`
 
     to {
         transform: rotateY(180deg);
+    }
+`;
+
+const ApportionAnimation = keyframes`
+    from {
+        opacity: 0;
+        transform: translateX(10%) translateY(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0%) translateY(0%);
     }
 `;
 
@@ -118,6 +146,12 @@ const CardContainer = styled.div`
         width: 42px;
         height: 56px;
     }
+`;
+
+const MyCardContainer = styled(CardContainer)<{ delay: number }>`
+    animation: ${ApportionAnimation} 0.2s ease-in forwards;
+    animation-delay: ${(props) => props.delay * 0.1}s;
+    opacity: 0;
 `;
 
 const SelectCardInnerBox = styled.div`

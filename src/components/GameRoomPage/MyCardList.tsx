@@ -9,12 +9,13 @@ const MyCardList = () => {
 
   return (
     <MyCardListContainer>
-        {cardArr?.map((item : number) => {
+        {cardArr?.map((item : number, index : number) => {
             return (
                 <PokerCard
                     key={item}
                     mycard={true}
-                    item={item}/>
+                    item={item}
+                    index={index}/>
             )
         })}
         <ButtonWrapper>
