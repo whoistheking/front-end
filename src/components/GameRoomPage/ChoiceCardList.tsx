@@ -15,12 +15,13 @@ const ChoiceCardList = () => {
 
   return (
     <CardListContainer>
-        {cardArr?.map((item : number) => {
+        {cardArr?.map((item : number, index : number) => {
             return (
                 <PokerCard
                     key={item}
                     mycard={false}
-                    item={item}/>
+                    item={item}
+                    index={index}/>
             )
         })}
     </CardListContainer>
