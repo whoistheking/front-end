@@ -11,22 +11,15 @@ interface PokerCardProps {
     index: number;
 };
 
-const PokerCard : React.FC<PokerCardProps> = ({ mycard, item, index }) => {
+const PokerCard: React.FC<PokerCardProps> = ({ mycard, item, index }) => {
 
     const dispatch = useDispatch();
-    const selectCard = useSelector((state : RootState) => state.cardChoice.value);
+    const selectCard = useSelector((state: RootState) => state.cardChoice.value);
 
     const onClickCardChoiceHandler = () => {
-        if (mycard) {
-            return;
-        } else {
-            if (selectCard === item) {
-                dispatch(cardClick(undefined));
-            } else {
-                dispatch(cardClick(item));
-            };
-            
-        };
+        if (mycard) { return; };
+        if (selectCard === item) { return dispatch(cardClick(undefined)); };
+        dispatch(cardClick(item));
     };
 
     const cardRender = () => {
@@ -34,54 +27,54 @@ const PokerCard : React.FC<PokerCardProps> = ({ mycard, item, index }) => {
             return (
                 <SelectCardContainer onClick={onClickCardChoiceHandler}>
                     <SelectCardInnerBox>
-                        <FrontCard style={{transform: (mycard) ? "" : "rotateY(180deg)"}}>
+                        <FrontCard style={{ transform: (mycard) ? "" : "rotateY(180deg)" }}>
                             front
                         </FrontCard>
                         <BackCard
                             src={CardBack}
                             alt=''
-                            style={{transform: (mycard) ? "rotateY(180deg)" : ""}}/>
+                            style={{ transform: (mycard) ? "rotateY(180deg)" : "" }} />
                     </SelectCardInnerBox>
                 </SelectCardContainer>
             )
-        } else if (mycard) {
+        }
+        if (mycard) {
             return (
                 <MyCardContainer
                     delay={index}
                     onClick={onClickCardChoiceHandler}>
                     <CardInnerBox>
-                        <FrontCard style={{transform: ""}}>
+                        <FrontCard style={{ transform: "" }}>
                             front
                         </FrontCard>
                         <BackCard
                             src={CardBack}
                             alt=''
-                            style={{transform: "rotateY(180deg)"}}/>
+                            style={{ transform: "rotateY(180deg)" }} />
                     </CardInnerBox>
                 </MyCardContainer>
             )
-        } else {
-            return (
-                <CardContainer onClick={onClickCardChoiceHandler}>
-                    <CardInnerBox>
-                        <FrontCard style={{transform: "rotateY(180deg)"}}>
-                            front
-                        </FrontCard>
-                        <BackCard
-                            src={CardBack}
-                            alt=''
-                            style={{transform: ""}}/>
-                    </CardInnerBox>
-                </CardContainer>
-            )
-        };
+        }
+        return (
+            <CardContainer onClick={onClickCardChoiceHandler}>
+                <CardInnerBox>
+                    <FrontCard style={{ transform: "rotateY(180deg)" }}>
+                        front
+                    </FrontCard>
+                    <BackCard
+                        src={CardBack}
+                        alt=''
+                        style={{ transform: "" }} />
+                </CardInnerBox>
+            </CardContainer>
+        )
     };
 
-  return (
-    <div>
-        {cardRender()}
-    </div>
-  )
+    return (
+        <div>
+            {cardRender()}
+        </div>
+    )
 };
 
 const CardViewAnimation = keyframes`
@@ -148,7 +141,7 @@ const CardContainer = styled.div`
     }
 `;
 
-const MyCardContainer = styled(CardContainer)<{ delay: number }>`
+const MyCardContainer = styled(CardContainer) <{ delay: number }>`
     animation: ${ApportionAnimation} 0.2s ease-in forwards;
     animation-delay: ${(props) => props.delay * 0.1}s;
     opacity: 0;
