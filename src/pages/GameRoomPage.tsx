@@ -71,7 +71,7 @@ const GameRoomPage = () => {
   );
 };
 
-const GameRoomLayout = styled.div`
+const GameRoomLayout = styled.article`
   width: 100%;
   height: 100%;
   display: flex;

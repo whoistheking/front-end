@@ -63,7 +63,7 @@ const LoadingAnimation = keyframes`
   }
 `;
 
-const LoginLayout = styled.div`
+const LoginLayout = styled.article`
   width: 100%;
   height: 100%;
   position: absolute;
