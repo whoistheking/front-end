@@ -10,9 +10,10 @@ const MainLayout = () => {
   return (
     <MainLayoutContainer>
       <ToastContainer
-          position="top-center"
-          autoClose={3000}
-          closeButton/>
+        position="top-center"
+        pauseOnHover={false}
+        autoClose={2000}
+        closeButton/>
       <MainContentWrapper>
         <Banner />
         <PageLayout>
