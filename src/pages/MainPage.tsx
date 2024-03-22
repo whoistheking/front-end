@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { StBasicButton } from "../styles/BasicButton";
 import TopLineButton from "../components/common/TopLineButton";
 import ProfileBG from "../assets/images/profile_background_image.webp";
-import Profile from "../assets/icons/google.webp";
+import Profile from "../assets/images/profile_image.png";
 import TypeCode from "../components/MainPage/TypeCode";
 import RoomModal from "../components/MainPage/RoomModal";
 import { useQuery } from "react-query";
@@ -68,7 +68,7 @@ const MainPage = () => {
   );
 };
 
-const MainPageLayout = styled.div`
+const MainPageLayout = styled.article`
   width: 100%;
   height: 100%;
   display: flex;

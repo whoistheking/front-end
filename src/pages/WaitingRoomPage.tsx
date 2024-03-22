@@ -72,12 +72,12 @@ const WaitingRoomPage = () => {
         });
 
         // 컴포넌트 언마운트 시 연결 해제
-        return () => {
-          if (stompClient) {
-            subscription.unsubscribe();
-            stompClient.disconnet(() => {});
-          }
-        }
+        // return () => {
+        //   if (stompClient) {
+        //     subscription.unsubscribe();
+        //     stompClient.disconnet(() => {});
+        //   }
+        // }
       },
       (error: any) => {
         console.log("STOMP 연결 실패", error);
@@ -130,7 +130,7 @@ const WaitingRoomPage = () => {
   );
 };
 
-const GameRoomLayout = styled.div`
+const GameRoomLayout = styled.article`
   width: 100%;
   height: 100%;
   display: flex;
